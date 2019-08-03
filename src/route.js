@@ -5,7 +5,7 @@ const changeRouter = (hash) => {
     if (hash === '#/login') {
         return showTemplate(hash);
     }
-    if (hash === '#/create') {
+    if (hash === '#/signUp') {
         return showTemplate(hash);
     }
 }
@@ -19,8 +19,8 @@ const showTemplate = (hash) => {
         case 'login':
         containerRoot.appendChild(templateLogin());
         break; 
-        case 'create':
-        containerRoot.appendChild(templateCreate())
+        case 'signUp':
+        containerRoot.appendChild(templateCreate());
         break;
         default: 
         containerRoot.innerHTML= `<p>Error 404</p>`

@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css"/>
     <title>Social Network</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA9phTAENYDtuCG3hLYLkc2h180LSae_cs",
+    authDomain: "social-network-72a7d.firebaseapp.com",
+    databaseURL: "https://social-network-72a7d.firebaseio.com",
+    projectId: "social-network-72a7d",
+    storageBucket: "social-network-72a7d.appspot.com",
+    messagingSenderId: "896525306722",
+    appId: "1:896525306722:web:7c3429840b75f890"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 </head>
 <h1>Social Network</h1>
 <body>    
-<ul>
-    <li>
-        <a href="#/login">Login Google</a>
-    </li>
-    <li>
-        <a href="#/create">Crear cuenta</a>
-    </li>
+
+   <button><a href="#/login">Iniciar Sesión</a></button>
+   <button><a href="#/signUp">Crear cuenta</a></button>
+
 </ul>
+<h1>sdhjgfhjdsgf h</h1>
 <div id="root">
     
 </div>
 
+
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
 <script type="module" src="./app.js"></script>
 </body>
 </html>
