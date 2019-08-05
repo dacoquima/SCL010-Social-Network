@@ -11,20 +11,25 @@
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyA9phTAENYDtuCG3hLYLkc2h180LSae_cs",
-      authDomain: "social-network-72a7d.firebaseapp.com",
-      databaseURL: "https://social-network-72a7d.firebaseio.com",
-      projectId: "social-network-72a7d",
-      storageBucket: "social-network-72a7d.appspot.com",
-      messagingSenderId: "896525306722",
-      appId: "1:896525306722:web:7c3429840b75f890"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA9phTAENYDtuCG3hLYLkc2h180LSae_cs",
+    authDomain: "social-network-72a7d.firebaseapp.com",
+    databaseURL: "https://social-network-72a7d.firebaseio.com",
+    projectId: "social-network-72a7d",
+    storageBucket: "social-network-72a7d.appspot.com",
+    messagingSenderId: "896525306722",
+    appId: "1:896525306722:web:7c3429840b75f890"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 </head>
 <h1>MigraME</h1>
 
@@ -36,10 +41,7 @@
   <!-- <i class="fa fa-heart"></i> --> 
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
-  <script type="module" src="./app.js"></script>
+<script type="module" src="./app.js"></script>
 </body>
 
 </html>
