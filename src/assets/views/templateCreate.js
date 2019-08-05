@@ -12,15 +12,17 @@ export const templateCreate = () => {
     containerCreate.className = 'containerCreate';
     const contentCreate =
     `<p>Crear cuenta</p>
-    <input placeholder='Nombre'>
-    <input placeholder='Apellido'>
-    <input placeholder='Nombre de usuario'>
-    <input type=email placeholder='Correo'>
-    <input type='password' placeholder='Contraseña'>
-    <input type='password' placeholder='Confirma tu contraseña'>
+    <form>
+    <input autocomplete placeholder='Nombre'>
+    <input autocomplete placeholder='Apellido'>
+    <input autocomplete placeholder='Nombre de usuario'>
+    <input autocomplete type='email' placeholder='Correo'>
+    <input autocomplete type='password' placeholder='Contraseña'>
+    <input autocomplete type='password' placeholder='Confirma tu contraseña'>
     <button id='sign'>Regístrate</button>
      <button id='signGg'>Crear con Google</button>
-     <button id='signFb'>Crear con Facebook</button>`
+     <button id='signFb'>Crear con Facebook</button>
+     </form>`
 
     containerCreate.innerHTML = contentCreate;
 
