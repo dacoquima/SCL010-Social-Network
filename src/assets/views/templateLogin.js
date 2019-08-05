@@ -14,16 +14,16 @@ export const templateLogin = () => {
     const containerLogin = document.createElement('div');
     containerLogin.className = 'containerLogin';
     const contentLogin =
-        `<h4>INICIAR SESIÓN</h4>
-        <form id="formLogin">
+        `<form id="formLogin">
+        <h4>INICIAR SESIÓN</h4>
             <input placeholder='Usuario'>
             <input type='password' placeholder='Contraseña'>
-            <input type='checkbox'><p>Recordarme</p>
-            <button id='login' classname='btn'>Iniciar sesión</button>
             </form>
-            <button id='loginGg' classname='btn'>Iniciar con Google</button>
-            <button id='loginFb' classname='btn'>Iniciar con Facebook</button>
-            <p>¿Aún no estás registrado?</p><a href="#/signUp" id="registerLink">Crea tu cuenta</a>`
+            <input type='checkbox'><p>Recordarme</p>
+            <button id='login' class='btn'>Iniciar sesión</button>
+            <button id='loginGg' class='btn'>Iniciar con Google</button>
+            <button id='loginFb' class='btn'>Iniciar con Facebook</button>
+            <p>¿Aún no estás registrado? <a href="#/signUp" id="registerLink">Crea tu cuenta</a></p>`
     
 
     containerLogin.innerHTML = contentLogin;

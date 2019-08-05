@@ -11,11 +11,14 @@ export const loginGoogle = () => {
             console.log('RES:', res);
             const user = res.user;
             console.log("Hola", user.displayName);
+            let userName = splitGoogleDisplayName(user.displayName);
+        saveUserToDatabaseAfterLogin(user, userName);
         })
         .catch(err => {
             console.log('El error es', err)
         })
 }
+
 
 const splitGoogleDisplayName = (displayName) => {
     let splitDisplayNameArray = displayName.split(' ');
@@ -26,9 +29,11 @@ const splitGoogleDisplayName = (displayName) => {
     return userName;
 }
 
-const saveUserToDatabaseAfterLogin = (uid, firstName, lastName, email) => {
-    console.log(uid, firstName, lastName, email);
-}
+//vay guardar usuario en la base de datos despues de logarse
+const saveUserToDatabaseAfterLogin = (user, userName) => {
+    console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);  
+  };
+
 
 export const loginFacebook = () => {
     console.log('Fb Ok');
@@ -42,6 +47,6 @@ export const loginFacebook = () => {
             console.log("Hola", user.displayName);
         })
         .catch(err => {
-            console.log('El error es', err)
+            console.log('Error es', err)
         })
 }
