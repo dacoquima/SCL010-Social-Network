@@ -19,9 +19,9 @@ export const templateCreate = () => {
     <input autocomplete type='email' placeholder='Correo'>
     <input autocomplete type='password' placeholder='Contraseña'>
     <input autocomplete type='password' placeholder='Confirma tu contraseña'>
-    <button id='sign'>Regístrate</button>
-     <button id='signGg'>Crear con Google</button>
-     <button id='signFb'>Crear con Facebook</button>
+    <button id='sign' class='btn'>Regístrate</button>
+     <button id='signGg' class='btn'>Crear con Google</button>
+     <button id='signFb' class='btn'>Crear con Facebook</button>
      </form>`
 
     containerCreate.innerHTML = contentCreate;
