@@ -1,15 +1,40 @@
-# Creando una Red Social
+![logo 2](img-readme/logo2.png)
 
-## Índice
+#**1-Red Social**
+En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
+Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
+salud, energías renovables, amantes de las [empanadas](https://es.wikipedia.org/wiki/Empanada) o de
+los [tacos de canasta](https://es.wikipedia.org/wiki/Taco), etc.
 
-* [Preámbulo](#preámbulo)
-* [Resumen del proyecto](#resumen-del-proyecto)
-* [Objetivos de aprendizaje](#objetivos-de-aprendizaje)
-* [Consideraciones generales](#consideraciones-generales)
-* [Parte obligatoria](#parte-obligatoria)
-* [Hacker Edition](#hacker-edition)
-* [Consideraciones técnicas](#consideraciones-técnicas-front-end)
-* [Contenido de referencia](#pistas-/-tips-/-lecturas-complementarias)
+Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
+acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+
+• Para acceder a demo de app [haz click aquí](https://carolgmonteiro.github.io/SCL010-hackathon-peliculas/src/index.html)
+
+***
+
+## **Índice**
+
+* [1-Red social](#ViewNOW!)
+  * [1.1- Preámbulo](#preámbulo)
+  * [1.2-Usuario](#usuario)
+  * [1.3-Problemática del Usuario](#problemática-del-Usuario)
+  * [1.4-Objetivos de la Aplicación](#objetivos-de-la-aplicacion)
+* [2-Metodología UX](#Metodología-UX)
+  * [2.1-Encuesta online](#Encuesta-online)
+    * [2.1.1-Alcance de la encuesta](#alcance-de-la-encuesta:)
+    * [2.1.2-Conclusiones de la encuesta](#conclusiones-de-la-encuesta:)
+  * [2.2-Historias de Usuario](#historias-de-usuario)
+  * [2.3- Diagrama de Flujo](#diagrama-de-flujo)
+  * [2.4-Prototipo de Baja Fidelidad](#prototipo-de-baja-fidelidad)
+    * [2.4.1-Sketch](#sketch)
+    * [2.4.2- Wireframe](#wireframe)
+  * [2.5-Colores y Tipografía](#colores-y-tipografía)
+  * [2.6- Prototipo de Alta Fidelidad](#prototipo-de-alta-fidelidad)
+  * [2.7 Evaluación heuristica ](#evaluación-heuristica)
+*  [3-Herramientas](#herramientas)
+*  [4-Futuras Mejoras](#futurasmejoras)
+*  [5-Desarrolladoras](#desarrolladoras)
 
 ***
 
@@ -26,106 +51,180 @@ investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
 de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
 más comentado.
 
-## Resumen del proyecto
+### **1.2-Usuario**
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [empanadas](https://es.wikipedia.org/wiki/Empanada) o de
-los [tacos de canasta](https://es.wikipedia.org/wiki/Taco), etc.
+La app “Nombre de la app”, es una aplicación web destinada a usuarios mayores de edad, que sean o no inmigrantes, ya que la misma se basa en la ayuda que se le puede dar a esa minoría desde cualquier ámbito. Se recomienda su uso para personas mayores de edad, que sepan utilizar una aplicación web y tengan facilidades para leer y escribir. 
+El enfoque hacia inmigrantes, es poder buscar información de interés sobre trámites en el país al que llegan, datos de alojamiento, arriendo, trabajo, cultural, etc. También otorgar datos a sus compatriotas que les puedan ser de utilidad mediante las publicaciones. 
+El enfoque hacia las personas no migrantes, es el de proveer datos de interés, contactos, alojamiento, trabajo, arriendo, datos culturales, etc, a inmigrantes dentro de su país mediante las publicaciones. 
+La visión general de la aplicación es poder recopilar en un sólo lugar todos los datos que hoy en día se comparten mediante grupos de whatsapp, facebook o cuentas de instagram. Así como también el crear comunidad y lazos entre los integrantes de todas las culturas. 
 
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
 
-## Objetivos de Aprendizaje
+### **1.3-Problemática del Usuario**
 
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://github.com/Laboratoria/curricula-js/tree/master/topics/css/02-responsive)
- (con más de una vista / página) en la que podamos **leer y escribir datos.**
+No hay canales de información entre las personas inmigrantes y no inmigrantes, que ordene la información, que hoy está difusa por diversas redes sociales por temáticas.
 
-## Consideraciones generales
+### **1.4-Objetivos de la Aplicación**
 
-- Este proyecto se debe "resolver" en tríos.
+- Permite ver las películas más valoradas y premiadas por la crítica cineasta.
+- Recomienda que película ver contestando unas simples preguntas según tu estado de ánimo y tiempo disponible.
+- Filtra por género y director.
+- Buscar películas reconocidas.
+- Apuntar a un Diseño inclusivo.
 
-- La lógica del proyecto debe estar implementada completamente en JavaScript (ES6+),
-HTML y CSS :smiley:. Para este proyecto no está permitido utilizar
-frameworks o librerías de CSS y JS.
+## **2-Metodología UX** 📌
 
-- La división del trabajo debe permitir que todo el equipo
-practique el aprendizaje de todo lo esperado **cada sprint**. _No se dividan el
-trabajo como en una fábrica._
+###**2.1-Encuesta online:**
+Se redacta y ejecuta una encuesta con el Formulario de Google Forms, para definir los parámetros generales de la aplicación: a qué usuario nos vamos a dirigir, cuáles son sus necesidades e intereses relacionados con la búsqueda de películas, como también para obtener claridad sobre cuál es la información más relevante a la que dichos usuarios necesitarán acceso.
+Con esta información se plantea la jerarquización de la data y de sus funcionalidades para poder acomodarla dentro del flujo de la aplicación junto con parámetros de usabilidad como también de diseño de interface (UI).
 
-- Trabajen en una sola historia por vez, no pueden avanzar a la siguiente sin
-haber completado la anterior.
+#### **2.1.1-Alcance de la encuesta:**
 
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
+La encuesta alcanzó un total de respuestas en un día y se puede encontrar haciendo click [encuesta](https://forms.gle/pfLn6GnjBkykP8ba9)
 
-## Parte obligatoria
 
-### General
+#### **2.1.2-Conclusiones tras analizar encuesta:**
 
-Este proyecto no incluye un _boilerplate_, así es que tendrás que definir la
-estructura de carpetas y escribir tus propias Pruebas Unitarias (tests). Para
-hacerlo, puedes guiarte de los proyectos anteriores.
+A partir de los resultados pudimos obtener y definir:
 
-### Definición del producto
 
-En el `README.md` cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Comparte fotos de
-entrevistas (si las tienes), cuestionarios y tus sketches/(bocetos).
 
-Es importante que detalles:
+#### **2.2-Historias de Usuario**
+Se definen acciones y funciones que nuestro usuario necesita y quiere realizar dentro de la app para lograr sus objetivos. La planificación se realizó mediante un trabajo colaborativo en [Trello](https://trello.com/b/CZnczp1y/laboratoria-social-network) y utilizando ceremonias ágiles para verificar las tareas que va realizando cada miembro del equipo –así detectamos a tiempo bloqueos-, dailys y retrospectivas diarias.
 
-* Quiénes son los principales usuarios de producto.
-* Qué problema resuelve el producto / para qué le servirá a estos usuarios.
+<a href="https://ibb.co/BZBFmpR"><img src="https://i.ibb.co/MV7QbvL/trello.png" alt="trello" border="0"></a>
 
-### Historias de usuario
 
-Una vez que entiendas las necesidades de tus usuarixs, escribe las Historias de
-Usuario que representen todo lo que necesitan hacer/ver en la Red Social.
+- **Historia de usuario 1: Creación de cuenta con correo electrónico** “YO como usuari@ QUIERO poder crear mi cuenta de acceso a la app con mi correo y la contraseña que yo elija, PARA poder acceder a los beneficios de la app. "
+➡**Criterios de aceptación:**
+- El usuario puede crear una cuenta con su correo electrónico y contraseña a elegir. 
+- Se visualizan los campos necesarios para crear una cuenta. (Inputs necesarios) - Formulário
+- El usuario puede colocar la contraseña que desee mientras cumpla los criterios establecidos para las contraseñas de la app. 
+- En caso de que el usuario introduzca una contraseña que no es válida, el sistema arroja un mensaje de error. 
+- Al usuario le llega un correo de confirmación de email para verificar su cuenta. 
+- El usuario debe verificar su cuenta creada, antes de poder realizar cualquier acción dentro de la página. 
+- Los datos del usuario quedan registrados en la base de datos. (Firebase)
 
-Cada una de tus Historias de Usuario debe tener:
-- **Criterios de Aceptación:** todo lo que debe ocurrir para satisfacer las
-  necesidades del usuario.
+- **Historia de usuario 2: Ingreso al perfil con correo electrónico** “YO como usuari@ QUIERO poder entrar a mi cuenta con mi correo y la contraseña que ya elegí, PARA poder acceder a las publicaciones de mi interés, perfil, y funcionalidades de la aplicación. ”
+➡ **Criterios de aceptación:**
+- La persona tuvo que verificar previamente su cuenta a través de su correo electrónico para poder acceder.
+- La persona puede acceder a su cuenta de correo electrónico y contraseña elegidos. 
+- Se visualizan los campos necesarios para hacer login en una cuenta. (Inputs necesarios)
+- En caso de que el usuario introduzca una contraseña o correo inválidos. el sistema arroja un mensaje de error. 
+- Al hacer click en entrar, el usuario queda posicionado en el feed de las publicaciones. 
 
-- **Definición de terminado:** todos los aspectos técnicos que deben cumplirse
-para que, como equipo, sepan que esa historia está terminada y lista
-para publicarse. **Todas** tus Historias de Usuario (salvo excepciones), deben
-incluir estos aspectos en su Definición de Terminado (más todas las que
-  necesiten agregar):
+- **Historia de usuario 3: Creación de cuenta con Google** “Yo como espectador de películas, quiero buscar una película por nombre para obtener su información.”
 
-  * Debe ser una SPA.
-  * Debe ser _responsive_.
-  * Debes haber recibido _code review_ de al menos una compañera de otro equipo.
-  * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
-  * Hiciste _pruebas_ de usabilidad e incorporaste el _feedback_ del usuario.
-  * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+➡ **Criterios de aceptación:** Creamos en la App Web un campo de búsqueda en la pantalla con su botón buscar que muestra la película.
 
-### Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+- **Historia de usuario 4:** “Yo como espectador de películas, quiero filtrar por género y director para poder ver distintas películas"
 
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
-con eso deberás diseñar la Interfaz de Usuario (UI por sus siglas en inglés) de
-esta red social que siga este flujo.
-Este diseño debe representar la solución que se implementará finalmente en
-código.
+➡ **Criterios de aceptación:** Creamos en la App Web un campo de filtros para que pueda realizar la búsqueda mejor.
 
-### Responsive
+ - **Historia de Usuario 5:** “yo como aficionada a las películas quiero ver la ficha de las películas que seleccioné y conocer más sobre ellas.”
 
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (tablets, celulares, etc.). Te
-sugerimos seguir la técnica de `mobile first` (más detalles sobre esta técnica
-al final).
+➡ **Criterios de aceptación:** Se creará un modal que se desplegará al momento de seleccionar por el usuario una opción de película, luego se mostrara una ficha con las características de ella.
 
-### Pruebas unitarias (unit tests)
+###  **2.3- Diagrama de Flujo**
 
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-_lines_, y _branches_.
+A partir de las historias de usuario se define el flujo básico de la aplicación:
 
-### Implementación de la Interfaz de Usuario (UI y comportamiento de Interfaz de Usuario)
+<a href="https://ibb.co/CbYjhts"><img src="https://i.ibb.co/F5yQgWq/mapa-de-flujo.png" alt="mapa-de-flujo" border="0"></a>
 
-Estas son consideraciones para que escribas las Definiciones de Terminado de
-tus H.U.:
+
+### **2.4-Prototipo de Baja Fidelidad**
+
+#### **2.4.1-Sketch**
+Nuestro primer objetivo fue distribuir cada elemento de la App Web, de acuerdo a lo visto en las historias de usuario.
+
+El sketch fue presentado a conocidos y a nuestras coaches para obtener feed-back, los cuales comentaron en su mayoría que es un prototipo de fácil uso y amigable.
+
+<a href="https://ibb.co/6P8SR94"><img src="https://i.ibb.co/FwX1bZB/sketch.jpg" alt="sketch" border="0"></a>
+
+#### **2.4.2- Wireframe**
+Desarrollo formal de página web, en términos de estructura, contenidos y diagramación a partir de la información y datos recopilados en la encuesta preliminar y test de usabilidad durante el desarrollo de la aplicación.
+Se desarrolla Wireframe en todas sus vistas .
+
+<a href="https://ibb.co/0Dbnm9T"><img src="https://i.ibb.co/znvmQ2p/w1.png" alt="w1" border="0"></a>
+<a href="https://ibb.co/d2Nc0Mk"><img src="https://i.ibb.co/C7jt58V/w2.png" alt="w2" border="0"></a>
+<a href="https://ibb.co/k8J48Qy"><img src="https://i.ibb.co/7WQnW2z/w3.png" alt="w3" border="0"></a>
+<a href="https://ibb.co/qnCGFmV"><img src="https://i.ibb.co/ZJSs1c7/w4.png" alt="w4" border="0"></a>
+<a href="https://ibb.co/G9dCr2y"><img src="https://i.ibb.co/ZSfcb85/w5.png" alt="w5" border="0"></a>
+
+#### **2.5- Colores y Tipografía**
+La gama de colores fue seleccionada primero basada en las páginas que existen hoy en día en el mercado: observamos que se repiten las tonalidades blancas, grises y negras. El color dorado lo agregamos para darle un toque de glamour siguiendo los patrones del premio más reconocido en la historia del cine, los Oscar.
+
+<a href="https://ibb.co/9rnCjbJ"><img src="https://i.ibb.co/XCXvT79/estudio.png" alt="estudio" border="0"></a>
+<a href="https://ibb.co/yh2Pc4j"><img src="https://i.ibb.co/dbZMwmY/colores.png" alt="colores" border="0"></a>
+
+Nuestros colores también fueron enfocados a una persona con daltonismo(El daltonismo es un defecto genético que ocasiona dificultad para distinguir los colores). 
+Ocupamos Color Oracle para simular diferentes tipos de daltonismo en nuestra página.
+
+- Deuteranopia (Ausencia color verde)
+- Protanopia (Ausencia de color rojo)
+- Tritanopia (Ausencia color azul)
+- GrayScale (Ausencia de color, solo blanco y negro)
+
+<a href="https://ibb.co/hWcs94y"><img src="https://i.ibb.co/PhMxjPN/01-DEUTERANOTOPIA.jpg" alt="01-DEUTERANOTOPIA" border="0"></a>
+
+<a href="https://ibb.co/23ykcqF"><img src="https://i.ibb.co/TMkgPcw/03-PRATANOPIA.jpg" alt="03-PRATANOPIA" border="0"></a>
+
+<a href="https://ibb.co/5c1dz3J"><img src="https://i.ibb.co/JkcNbTS/04-TRINATOPIA.jpg" alt="04-TRINATOPIA" border="0"></a>
+
+<a href="https://ibb.co/wWc4Fj7"><img src="https://i.ibb.co/hWYVJwc/02-GRAYSCALE.jpg" alt="02-GRAYSCALE" border="0"></a>
+
+#### **2.6- Prototipo de Alta Fidelidad**
+Después de la definición de usuario, de sus características, intereses y gustos, se define el diseño visual de nuestra aplicación en términos de color, fuente, logo y contenido de imágenes entre otros.
+
+<a href="https://ibb.co/BsBy4sk"><img src="https://i.ibb.co/5cLrYcZ/prototipo-Alta-FIdelidad.png" alt="prototipo-Alta-FIdelidad" border="0"></a>
+<a href="https://ibb.co/q5cyJrP"><img src="https://i.ibb.co/fvy1DxP/PA1.png" alt="PA1" border="0"></a>
+<a href="https://ibb.co/tCsJ42n"><img src="https://i.ibb.co/XJsCb56/PA2.png" alt="PA2" border="0"></a>
+<a href="https://ibb.co/hyppcHv"><img src="https://i.ibb.co/drnnt6y/PA3.png" alt="PA3" border="0"></a>
+
+### **2.7 Evaluación heurística **
+Realizamos la evaluación para nuestra página web en el siguiente sitio: [haz click aquí](https://docs.google.com/spreadsheets/d/1WqaUHThau9wam46izLvE3mhmPdidPLpY_1RKa1ULrUM/edit?usp=sharing)
+
+
+## **3-Herramientas**  🛠️
+
+- Visual Studio (HTML5, CSS, JAVASCRIPT)
+-  [Trello](https://trello.com)
+-  [Balsamiq](https://balsamiq.com/)
+- [Color Oracle](https://colororacle.org/)
+-  [Figma](https://www.figma.com/)
+- Illustrator
+-  [Loom](https://www.loom.com)
+-  [Git](https://git-scm.com/)
+-  [GitHub](https://github.com/)
+-  [GitHub Pages](https://pages.github.com/)
+-  [Node.js](https://nodejs.org/)
+
+## **4-Futuras Mejoras**
+
+- Versión en español.
+- Manejo de mayor cantidad de datos y actualizarlos constantemente.
+- Responsive en diferentes equipos.
+- Testeo con personas con discapacidad visual para obtener feedback.
+- Obtener información con un modal, sugiriéndo la plataforma donde verla.
+- Otros criterios para sugerencias de películas.  
+- Ordenado de la Data. 
+- Incluir otras discapacidades. 
+
+
+## **5-Desarrolladoras**
+- [Carolina Guido](https://github.com/carolgmonteiro)
+- [Daniela Salermi](https://github.com/AlejandraMoralesB)
+- [Daniela Quintana](https://github.com/ClaudiaQuezadaRiquelme)
+
+División de tareas:
+
+| Carolina       | Alejandra        | Claudia  |
+| :------------- |:-------------| :-----
+| Planning      | Planning      |  Planning |
+| HTML          | HTML          | HTML |
+| UX Design  Prototipos Balsamiq  Figma  |   Readme  |CSS3
+| Mapa de flujo |  CSS3   | Sketches
+| JavaScript  | JavaScript  |   JavaScript
+
 
 #### Creación de cuenta de usuario e inicio de sesión
 
@@ -202,12 +301,6 @@ Desde el punto de vista de UX, deberás:
   diseño.
 * Hacer sesiones de testing con el producto en HTML.
 
-## Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
 ## Evaluación
 
 Recuerda revisar la [rúbrica](https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRktPN4ilZtkRN5tUb3DVhgeihwlzk63_-JI3moA-bXpKDbHDioAK2H3qbrwWNb0Ql4wX22Tgv7-PDv/pubhtml)
@@ -264,52 +357,4 @@ cuando lo completes:
 
 ***
 
-## Pistas / Tips / Lecturas complementarias
 
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
-
-### Escritura de datos
-
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (salvar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar de forma remota
-usando [Firebase](https://firebase.google.com/).
-
-Otras:
-
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-
-***
