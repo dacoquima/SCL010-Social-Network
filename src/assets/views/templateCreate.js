@@ -4,7 +4,8 @@ import { loginGoogle, loginFacebook } from "./../js/auth.js";
 export const templateCreate = () => {
   const containerCreate = document.createElement("div");
   containerCreate.className = "containerCreate";
-  const contentCreate = `<p>Crear cuenta</p>
+  const contentCreate = `<img src="./assets/img/people.png" alt="iconografia razas del mundo" />
+    <p>Crear cuenta</p>
     <form>
     <input autocomplete type="text" name="name" placeholder='Nombre'>
     <input autocomplete type="text" name="lastname" placeholder='Apellido'>

@@ -3,7 +3,8 @@ import { loginGoogle, loginFacebook, loginWithEmail } from "./../js/auth.js";
 export const templateLogin = () => {
   const containerLogin = document.createElement("div");
   containerLogin.className = "containerLogin";
-  const contentLogin = `<h4>INICIAR SESIÓN</h4>
+  const contentLogin = `<img src="./assets/img/people.png" alt="iconografia razas del mundo" />
+        <h4>INICIAR SESIÓN</h4>
         <form id="formLogin">
           <input name = "email" placeholder='Email'>
           <input name = "password" type='password' placeholder='Contraseña'>
