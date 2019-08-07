@@ -15,7 +15,7 @@ export const createAccountInDb = data => {
   var id = db.collection("users").doc(data.uid);
   id.set(data)
     .then(docRef => {
-      console.log(docRef);
+      console.log(docRef.uid);
     })
     .catch(err => console.log(err));
 };
