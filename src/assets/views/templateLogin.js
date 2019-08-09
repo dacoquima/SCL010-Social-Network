@@ -1,46 +1,37 @@
-const login = () => {
-    console.log('Login');
-}
-
-import {
-    loginGoogle
-} from './../js/auth.js'
-
-import {
-    loginFacebook
-} from './../js/auth.js'
+import { loginGoogle, loginFacebook, loginWithEmail } from "./../js/auth.js";
 
 export const templateLogin = () => {
-    const containerLogin = document.createElement('div');
-    containerLogin.className = 'containerLogin';
-    const contentLogin =
-        `<form id="formLogin">
+  const containerLogin = document.createElement("div");
+  containerLogin.className = "containerLogin";
+  const contentLogin = `<img src="./assets/img/people.png" alt="iconografia razas del mundo" />
         <h4>INICIAR SESIÓN</h4>
-            <input placeholder='Usuario'>
-            <input type='password' placeholder='Contraseña'>
-            </form>
-            <input type='checkbox'><p>Recordarme</p>
-            <button id='login' class='btn'>Iniciar sesión</button>
-            <button id='loginGg' class='btn'>Iniciar con Google</button>
-            <button id='loginFb' class='btn'>Iniciar con Facebook</button>
-            <p>¿Aún no estás registrado? <a href="#/signUp" id="registerLink">Crea tu cuenta</a></p>`
-    
+        <form id="formLogin">
+          <input name = "email" placeholder='Email'>
+          <input name = "password" type='password' placeholder='Contraseña'>
+          <input type='checkbox'><p>Recordarme</p>
+        </form>
+          <button id='login' classname='btn'>Iniciar sesión</button>
+          <button id='loginGg' classname='btn'>Iniciar con Google</button>
+          <button id='loginFb' classname='btn'>Iniciar con Facebook</button>
+          <p>¿Aún no estás registrado?</p><a href="#/signUp" id="registerLink">Crea tu cuenta</a>`;
 
-    containerLogin.innerHTML = contentLogin;
+  containerLogin.innerHTML = contentLogin;
 
-    const btnLogin = containerLogin.querySelector('#login');
-    btnLogin.addEventListener('click', () => {
-        login();
-    })
+  const btnLogin = containerLogin.querySelector("#login");
+  btnLogin.addEventListener("click", () => {
+    const email = document.querySelector("input[name=email]").value;
+    const password = document.querySelector("input[name=password]").value;
+    loginWithEmail(email, password);
+  });
 
-    const btnGoogle = containerLogin.querySelector('#loginGg');
-    btnGoogle.addEventListener('click', () => {
-        loginGoogle();
-    })
+  const btnGoogle = containerLogin.querySelector("#loginGg");
+  btnGoogle.addEventListener("click", () => {
+    loginGoogle();
+  });
 
-    const btnFacebook = containerLogin.querySelector('#loginFb');
-    btnFacebook.addEventListener('click', () => {
-        loginFacebook();
-    })
-    return containerLogin;
-}
+  const btnFacebook = containerLogin.querySelector("#loginFb");
+  btnFacebook.addEventListener("click", () => {
+    loginFacebook();
+  });
+  return containerLogin;
+};
