@@ -66,15 +66,7 @@ const createAccountEmail = (userdata, secret) => {
 };
 
 export const createAccount = () => {
-  let userdata = {};
-  let secret = {};
-  userdata.name = document.querySelector("input[name=name]").value;
-  userdata.lastname = document.querySelector("input[name=lastname]").value;
-  userdata.email = document.querySelector("input[name=email]").value;
-  // userdata.creationData = new Date();Se usará para guardar la fecha de las publicaciones
-  userdata.friends = [];
-  secret.password1 = document.querySelector("input[name=password1]").value;
-  secret.password2 = document.querySelector("input[name=password2]").value;
+  let { secret, userdata } = getData();
 
   if (
     secret.password1 &&
@@ -124,6 +116,26 @@ export const observer = () => {
       console.log("no hay usuario activo");
     }
   });
+};
+
+const getData = () => {
+  let userdata = {};
+  let secret = {};
+  userdata.name = document.querySelector("input[name=name]").value;
+  userdata.lastname = document.querySelector("input[name=lastname]").value;
+  userdata.email = document.querySelector("input[name=email]").value;
+  userdata.dateOfBirth = document.querySelector("#dateOfBirth").value;
+  userdata.gender = document.querySelector("select[name=gender]").value;
+  userdata.countryOfBirth = document.querySelector(
+    "select[name=countryOfBirth]"
+  ).value;
+  userdata.profession = document.querySelector("input[name=profession]").value;
+  userdata.bio = document.querySelector("textarea[name=bio]").value;
+  // userdata.creationData = new Date();Se usará para guardar la fecha de las publicaciones
+  userdata.friends = [];
+  secret.password1 = document.querySelector("input[name=password1]").value;
+  secret.password2 = document.querySelector("input[name=password2]").value;
+  return { secret, userdata };
 };
 
 function show() {

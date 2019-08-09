@@ -14,8 +14,8 @@ export const createAccountInDb = data => {
   var db = firebase.firestore();
   var id = db.collection("users").doc(data.uid);
   id.set(data)
-    .then(docRef => {
-      console.log(docRef.uid);
+    .then(() => {
+      console.log("todo salio bien");
     })
     .catch(err => console.log(err));
 };
