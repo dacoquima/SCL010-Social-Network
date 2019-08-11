@@ -32,7 +32,10 @@ export const templateCreate = () => {
     <button class="actionButtonRegular" id="sign">Crear cuenta</button>
     <button class="signInGoogleFacebookButton" id="signGg"><img src="./assets/img/google.svg" alt="logo google" width="19"/>Continuar con Google</button>
     <button class="signInGoogleFacebookButton" id="signFb"><img src="./assets/img/facebook.svg" alt="logo facebook" width="19"/>Continuar con Facebook</button>
-  </main>`;
+  </main>
+  <footer class="footerCreate">
+    <h6>¿Ya estás registrado? <a href="#/login">Inicia sesión</a></h6>
+  </footer>`;
 
   containerCreate.innerHTML = contentCreate;
 

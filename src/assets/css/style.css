@@ -155,3 +155,7 @@ a {
 .iconInput input {
   flex: 1;
 }
+.footerCreate {
+  display: flex;
+  justify-content: center;
+}
