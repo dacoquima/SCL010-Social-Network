@@ -8,10 +8,10 @@ export const templateCreate = () => {
   <img src="./assets/img/first-header.png" class="imgFirstHeader" alt="iconografia razas del mundo / logo"/>
   </header>
 
-  <main class="mainCreate">
+  <main class="mainLoginCreate">
     <h1 class="principalHeader">Crea tu cuenta</h1>
     <p class="secondaryText">Llena el siguiente formulario y únete a la comunidad de ayuda a inmigrantes más grande de Chile.</p>
-    <form class="createAccountFormulary">
+    <form class="createAccountLoginFormulary">
       <span class="iconInput"> 
         <img src="./assets/img/person.svg" alt="icono persona"/>
         <input autocomplete class="inputFormulary" type="text" name="fullName" placeholder="Nombre y Apellido">
@@ -33,7 +33,7 @@ export const templateCreate = () => {
     <button class="signInGoogleFacebookButton" id="signGg"><img src="./assets/img/google.svg" alt="logo google" width="19"/>Continuar con Google</button>
     <button class="signInGoogleFacebookButton" id="signFb"><img src="./assets/img/facebook.svg" alt="logo facebook" width="19"/>Continuar con Facebook</button>
   </main>
-  <footer class="footerCreate">
+  <footer class="footerLoginCreate">
     <h6>¿Ya estás registrado? <a href="#/login">Inicia sesión</a></h6>
   </footer>`;
 
