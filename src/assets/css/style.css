@@ -71,6 +71,7 @@ a {
   margin: 0 auto;
   margin-bottom: 20px;
   width: 100%;
+  outline: none;
 }
 
 .signInGoogleFacebookButton {
@@ -86,6 +87,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: none;
 }
 
 .signInGoogleFacebookButton img {
@@ -136,4 +138,41 @@ a {
 }
 .footerLoginCreate h6 {
   margin-bottom: 10px;
+}
+
+.imgAvatar {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.slct-box{
+  border: none;
+  border-bottom: 1px solid var(--babyBlue);
+  color: var(--principalBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  background: inherit;
+  width: 350px;
+}
+.txtAreaStyle {
+  outline: none;
+  border: 1px solid var(--babyBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+.txtAreaStyle ::placeholder{
+  color: var(--babyBlue);
+}
+.iconInput1 {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.iconInput1 input {
+  flex: 1;
+}
+.iconInput1 Img {
+  width: 20px;
+  position: absolute;
 }
