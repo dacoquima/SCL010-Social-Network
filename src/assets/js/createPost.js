@@ -1,7 +1,7 @@
 //import { observer } from "./auth";
 
 // funcion para crear posts
-export const authPost = () => {
+export const createPost = () => {
   //observer();
   //guardamos firestore en variable
   let db = firebase.firestore();

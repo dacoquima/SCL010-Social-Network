@@ -1,7 +1,7 @@
 import { templateLogin } from "./assets/views/templateLogin.js";
 import { templateCreate } from "./assets/views/templateCreate.js";
 import { templateFeed } from "./assets/views/templateFeed.js";
-import { templateCreatePost } from "./assets/views/templateCreatePost.js";
+import { templatePost } from "./assets/views/templatePost.js";
 
 const changeRouter = hash => {
   if (hash === "#/login") {
@@ -33,7 +33,7 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateFeed());
       break;
     case "post":
-      containerRoot.appendChild(templateCreatePost());
+      containerRoot.appendChild(templatePost());
       break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;

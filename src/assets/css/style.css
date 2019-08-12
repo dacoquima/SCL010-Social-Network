@@ -38,6 +38,11 @@ h1 {
 ::placeholder {
   color: var(--principalBlue);
 }
+h2 {
+  color: var(--mustardYellow);
+  font-size: 18px;
+  font-weight: bold;
+}
 h4 {
   font-size: 95%;
   text-align: center;
@@ -141,8 +146,9 @@ a {
 }
 
 .imgAvatar {
-  width: 30%;
-  margin-bottom: 20px;
+  width: 70px;
+  position: relative;
+  padding-right: 13px;
 }
 
 .slct-box{
@@ -168,6 +174,7 @@ a {
   display: flex;
   align-items: center;
   position: relative;
+  margin-bottom: 20px;
 }
 .iconInput1 input {
   flex: 1;
@@ -175,4 +182,37 @@ a {
 .iconInput1 Img {
   width: 20px;
   position: absolute;
+}
+.secondarytextPost {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.iconInputBack{
+  width: 20px;
+  position: absolute;
+  padding-right: 13px;
+  padding-left: 35px;
+  align-items: center;
+}
+
+.secondHeader {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* .secondHeader img{
+  position: absolute;
+} */
+.imgSecondHeader{
+  width: 100%;
+}
+
+.formPost {
+  margin-bottom: 20px;
 }

@@ -33,22 +33,22 @@
 // };
 
 //importar funcion que crea post
-import { authPost } from "./../js/authPost.js";
+import { createPost } from "../js/createPost.js";
 
-export const templateCreatePost = () => {
+export const templatePost = () => {
     console.log("Puede postar");
         const containerCreate = document.createElement("div");
         containerCreate.className = "containerCreate";
-        const contentCreate = `<header>
-        <img src="" class="imgFirstHeader" alt="iconografia razas del mundo / logo"/>
+        const contentCreate = `<header class="secondHeader">
+        <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
+        <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
         </header>
-        <div id = "templatePost" class="mainLoginCreate">
-        <div>
-        <span>
-        <img src="./assets/img/user.svg" class="imgAvatar" alt="avatar user"/><h4 class="secondaryText">Ana María González</h4>
-        </span>
+        <main id = "templatePost" class="mainLoginCreate">
+        <div><h1 class="secondarytextPost">Nueva publicación</h1></div>
+        <div class = "perfil">
+        <img src="./assets/img/user.svg" class="imgAvatar" alt="avatar user"/><h2>Ana María González</h2>
         </div>
-        <form> 
+        <form class="formPost"> 
         <span class="iconInput1"> 
        <img src="./assets/img/categoryIcon.png" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
@@ -60,7 +60,6 @@ export const templateCreatePost = () => {
        <option value="Tramites de visa">Tramites de visa</option>
        </select>
         </span>
-        </br>
           <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
           <span class="iconInput1">
           <img src="./assets/img/hashtag.svg" alt="avatar user"/>
@@ -71,9 +70,8 @@ export const templateCreatePost = () => {
           <input type="text" name="location" placeholder='Ubicación' class="inputFormulary">
           </span>
           </form> 
-           </br>
             <button id='post' class="actionButtonRegular">Publicar</button>
-            </div>` 
+            </main>` 
       
         containerCreate.innerHTML = contentCreate;
     
@@ -83,7 +81,7 @@ export const templateCreatePost = () => {
           // let postMesage = document.querySelector("textarea[name=postTxt]").value;
           // let postHashtags = document.querySelector("input[name=Hashtag]").value;
           // let postLocation = document.querySelector("input[name=location]").value;  
-          authPost();
+          createPost();
           // console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
           
         });
