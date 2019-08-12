@@ -147,3 +147,18 @@ const verifyEmail = () => {
       // An error happened.
     });
 };
+
+export const rememberPassword = () => {
+  var auth = firebase.auth();
+  var emailAddress = document.querySelector("input[name=email]").value;
+
+  auth
+    .sendPasswordResetEmail(emailAddress)
+    .then(function() {
+      console.log("Correo de reestablecimiento de contraseña enviado");
+      // Email sent.
+    })
+    .catch(function(error) {
+      // An error happened.
+    });
+};

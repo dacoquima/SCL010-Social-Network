@@ -27,7 +27,7 @@ export const templateLogin = () => {
   </main>
   <footer class="footerLoginCreate">
     <h6>¿Aún no estás registrado? <a href="#/signUp">Crea tu cuenta</a></h6>
-    <h6>¿Olvidaste tu contraseña? <a href="#/signUp">Recuérdala</a></h6>
+    <h6>¿Olvidaste tu contraseña? <a href="#/resetPassword">Recuérdala</a></h6>
   </footer>`;
 
   containerLogin.innerHTML = contentLogin;

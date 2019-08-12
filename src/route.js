@@ -1,6 +1,7 @@
 import { templateLogin } from "./assets/views/templateLogin.js";
 import { templateCreate } from "./assets/views/templateCreate.js";
 import { templateFeed } from "./assets/views/templateFeed.js";
+import { templateResetPassword } from "./assets/views/templateResetPassword.js";
 
 const changeRouter = hash => {
   if (hash === "#/login") {
@@ -10,6 +11,9 @@ const changeRouter = hash => {
     return showTemplate(hash);
   }
   if (hash === "#/feed") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/resetPassword") {
     return showTemplate(hash);
   }
 };
@@ -28,6 +32,9 @@ const showTemplate = hash => {
       break;
     case "feed":
       containerRoot.appendChild(templateFeed());
+      break;
+    case "resetPassword":
+      containerRoot.appendChild(templateResetPassword());
       break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;
