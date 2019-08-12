@@ -1,5 +1,6 @@
 import { connect } from "./database.js";
 import { createAccountInDb } from "./../js/database.js";
+import { templateSuccessCreate } from "../views/templateSuccessCreate.js";
 
 export const loginGoogle = () => {
   console.log("Google Ok");
@@ -60,6 +61,7 @@ const createAccountEmail = (userdata, secret) => {
       userdata.uid = user.uid;
       createAccountInDb(userdata);
       verifyEmail();
+      templateSuccessCreate();
     })
     .catch(err => {
       console.log("El error es", err);
@@ -156,7 +158,7 @@ export const rememberPassword = () => {
     .sendPasswordResetEmail(emailAddress)
     .then(function() {
       console.log("Correo de reestablecimiento de contraseña enviado");
-      // Email sent.
+      location.href = "#/login";
     })
     .catch(function(error) {
       // An error happened.
