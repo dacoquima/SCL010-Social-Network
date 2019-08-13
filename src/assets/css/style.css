@@ -62,7 +62,7 @@ a {
 .principalHeader {
   margin-bottom: 20px;
 }
-.secondarytext {
+.secondaryText {
   margin-bottom: 20px;
   font-size: 16px;
 }
@@ -76,6 +76,7 @@ a {
   margin: 0 auto;
   margin-bottom: 20px;
   width: 100%;
+  cursor: pointer;
   outline: none;
 }
 
@@ -92,7 +93,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   outline: none;
+
 }
 
 .signInGoogleFacebookButton img {
@@ -121,7 +124,6 @@ a {
   padding: 20px 16px 16px 30px;
   position: relative;
 }
-
 .iconInput {
   display: flex;
   align-items: center;
@@ -143,6 +145,39 @@ a {
 }
 .footerLoginCreate h6 {
   margin-bottom: 10px;
+}
+
+.infoMigraMe {
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.infoMigraMefeature {
+  flex: 1;
+  width: auto;
+  height: 243px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px var(--babyBlue);
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+.infoMigraMeImg {
+  margin: 20px;
+}
+.infoMigraMeText {
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.marginBottom120 {
+  margin-bottom: 120px;
 }
 
 .imgAvatar {

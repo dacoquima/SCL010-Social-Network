@@ -1,8 +1,12 @@
 import { connect } from "./database.js";
 import { createAccountInDb } from "./../js/database.js";
+import { templateSuccessCreate } from "../views/templateSuccessCreate.js";
+
+
 //variable de los datos como global
 let db = firebase.firestore();
 //fuccion para autenticar google
+
 export const loginGoogle = () => {
   console.log("Google Ok");
   connect();
@@ -118,6 +122,7 @@ const createAccountEmail = (userdata, secret) => {
       userdata.uid = user.uid;
       createAccountInDb(userdata);
       verifyEmail();
+      templateSuccessCreate();
     })
     .catch(err => {
       console.log("El error es", err);
@@ -221,6 +226,21 @@ const verifyEmail = () => {
     .sendEmailVerification()
     .then(function() {
       // Email sent.
+    })
+    .catch(function(error) {
+      // An error happened.
+    });
+};
+
+export const rememberPassword = () => {
+  var auth = firebase.auth();
+  var emailAddress = document.querySelector("input[name=email]").value;
+
+  auth
+    .sendPasswordResetEmail(emailAddress)
+    .then(function() {
+      console.log("Correo de reestablecimiento de contraseña enviado");
+      location.href = "#/login";
     })
     .catch(function(error) {
       // An error happened.
