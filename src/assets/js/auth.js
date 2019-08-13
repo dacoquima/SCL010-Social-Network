@@ -27,10 +27,11 @@ export const loginGoogle = () => {
      // si documento existe entramos en el muro
      if (doc.exists) {
       alert("Has iniciado sesión con exito");
-      window.location.hash = '#/feed';
+      window.location.hash = '#/post';
      }else{
        //si no existe lo vamos a crear con uid de usuario
       saveUserToDatabaseAfterLogin(user, userName);
+      
       //  db.collection("users").doc(user.uid).set({
       //   email:user.email,
       //   firstName:userName.firstName,
@@ -39,7 +40,7 @@ export const loginGoogle = () => {
       //   uid: user.uid
     //})
     alert("Has iniciado sesión con exito");
-    window.location.hash='#/feed';
+    window.location.hash='#/post';
   }
 });
 })
@@ -58,13 +59,16 @@ const splitGoogleDisplayName = displayName => {
 };
 //vay guardar usuario en la base de datos despues de logarse
 const saveUserToDatabaseAfterLogin = (user, userName) => {
+  let date = new Date();
   //Convertir las informaciones de google en um objecto
-  db.collection("users").doc(user.uid).set({
+  db.collection("users").doc(user.uid).set({ 
+  //db.collection("users").add({
     email:user.email,
     firstName:userName.firstName,
     lastName:userName.lastName,
     photo:user.photoURL,
-    uid: user.uid
+    uid: user.uid,
+    date: date
   })
   console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
 };
@@ -122,7 +126,7 @@ export const loginWithEmail = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res => (location.href = "#/feed"))
+    .then(res => (location.href = "#/post"))
     .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -134,17 +138,18 @@ export const loginWithEmail = (email, password) => {
 export const observer = () => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      
       // User is signed in.
       console.log("existe usuario activo");
-      show();
+      // show();
       var displayName = user.displayName;
       var email = user.email;
-      console.log(email);
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      // console.log("DISPLAYNAME:" displayName, "UID:" uid);
       // ...
     } else {
       // User is signed out.
@@ -182,3 +187,4 @@ const verifyEmail = () => {
       // An error happened.
     });
 };
+

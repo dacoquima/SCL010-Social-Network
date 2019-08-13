@@ -1,12 +1,18 @@
-//import { observer } from "./auth";
+import { observer } from './auth.js'
 
 // funcion para crear posts
 export const createPost = () => {
   //observer();
+  console.log("createPost A");
   //guardamos firestore en variable
   let db = firebase.firestore();
   //guardamos fecha
-  let date = Date.now();
+  let date = new Date();
+
+  console.log("createPost B");
+
+  //user = observer();
+  //console.log("USER:", user);
   
   //guardamos os valores elijidos por el usuario
   let postCategory = document.querySelector("select[name=slctCategory]").value;
@@ -15,16 +21,16 @@ export const createPost = () => {
           let postLocation = document.querySelector("input[name=location]").value;
           console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
 //usamos esta funcion para obtener uid de uauario corriente
-          //firebase.auth().onAuthStateChanged(user => {
+          firebase.auth().onAuthStateChanged(user => {
     //obtenemos desde collecion users datos de usuario corriente con uid
-    //db.collection('users').doc(user.uid).get().then(doc => {
+    db.collection('users').doc(user.uid).get().then(doc => {
 
-      //agraga un ID automatico
+      //agrega un ID automatico
     db.collection("posts").add({
-      //db.collection("posts").doc(user.uid).set({
-      //uid: user.uid,
-      //author: user.email,
-      //authorName: doc.data().name,
+      //db.collection("users").doc(user.uid).set({
+      uid: user.uid,
+      email: user.email,
+      //authorName: doc.data().user,
       date: date,
       category: postCategory,
       message: postMesage,
@@ -36,13 +42,13 @@ export const createPost = () => {
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
       alert("post guardado con exito");
-    window.location.hash='#/feed';
+    window.location.hash='#/login';
     })
     .catch(function(error) {
       console.error("Error adding document: ", error);
     })
-   // })
-  //})
+   })
+  })
   };
     
   // const splitHashtag = (postHashtags) => {

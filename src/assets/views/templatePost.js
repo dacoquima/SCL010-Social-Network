@@ -1,42 +1,13 @@
-// // funcion para crear post
-// export const createPost = () => {
-// //guardamos firestore en variable
-// let db = firebase.firestore();
-// //guardamos fecha
-// let date = Date.now();
-// //usamos esta funcion para obtener uid de uauario corriente
 
-// firebase.auth().onAuthStateChanged(user => {
-//   //obtenemos desde collecion users datos de usuario corriente con uid
-//   //db.collection('users').doc(user.uid).get().then(doc => {
-//   //db.collection("posts").add({
-//     db.collection("posts").doc(user.uid).set({
-//     // uid: user.uid,
-//     // author: user.email,
-//     // authorName: doc.data().name,
-//     // date: date,
-//     category: postcategory,
-//     message: postMesage,
-//     hashtag: postHashtags,
-//     location: postLocation,
-//     // like: 1,
-//     // liked: 30
-//   })
-//   .then(function(docRef) {
-//     console.log("Document written with ID: ", docRef.id);
-//   })
-//   .catch(function(error) {
-//     console.error("Error adding document: ", error);
-//   })
-//   //})
-// })
-// };
 
 //importar funcion que crea post
 import { createPost } from "../js/createPost.js";
+import { observer } from "./../js/auth.js";
+
 
 export const templatePost = () => {
     console.log("Puede postar");
+    observer();
         const containerCreate = document.createElement("div");
         containerCreate.className = "containerCreate";
         const contentCreate = `<header class="secondHeader">
