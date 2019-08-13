@@ -1,45 +1,53 @@
 import { connect } from "./database.js";
 import { createAccountInDb } from "./../js/database.js";
-
+//variable de los datos como global
+let db = firebase.firestore();
+//fuccion para autenticar google
 export const loginGoogle = () => {
   console.log("Google Ok");
   connect();
-
+  //codigo retirado del firestore
   var provider = new firebase.auth.GoogleAuthProvider();
-
   firebase
     .auth()
     .signInWithPopup(provider)
+    
     .then(res => {
-      const user = res.user;
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    // var token = res.credential.accessToken;
+    // The signed-in user info
+     //constante copiada desde firebase auth login con google
+    const user = res.user;
       console.log("RES:", res);
       let userName = splitGoogleDisplayName(user.displayName);
       console.log("Hola", user.displayName);
-      db.collection('users').doc(user.uid).get().then(function(doc){
-        if (doc.exists) {
-         alert("Has iniciado sesión con exito");
-         window.location.hash = '#/feed';
-        }else{
-          //si no existe lo vamos a crear con uid de usuario
-         saveUserToDatabaseAfterLogin(user, userName);
-         //  db.collection("users").doc(user.uid).set({
-         //   email:user.email,
-         //   firstName:userName.firstName,
-         //   lastName:userName.lastName,
-         //   photo:user.photoURL,
-         //   uid: user.uid
-       //})
-       alert("Has iniciado sesión con exito");
-       window.location.hash='#/feed';
-     }
-   });
-   })
-
+    // let db = firebase.firestore();
+    // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
+    db.collection('users').doc(user.uid).get().then(function(doc){
+     // si documento existe entramos en el muro
+     if (doc.exists) {
+      alert("Has iniciado sesión con exito");
+      window.location.hash = '#/feed';
+     }else{
+       //si no existe lo vamos a crear con uid de usuario
+      saveUserToDatabaseAfterLogin(user, userName);
+      //  db.collection("users").doc(user.uid).set({
+      //   email:user.email,
+      //   firstName:userName.firstName,
+      //   lastName:userName.lastName,
+      //   photo:user.photoURL,
+      //   uid: user.uid
+    //})
+    alert("Has iniciado sesión con exito");
+    window.location.hash='#/feed';
+  }
+});
+})
     .catch(err => {
       console.log("El error es", err);
     });
 };
-
+//para dividir el nombre que está en Google para guardar en la DB
 const splitGoogleDisplayName = displayName => {
   let splitDisplayNameArray = displayName.split(" ");
   let userName = {
@@ -48,7 +56,7 @@ const splitGoogleDisplayName = displayName => {
   };
   return userName;
 };
-
+//vay guardar usuario en la base de datos despues de logarse
 const saveUserToDatabaseAfterLogin = (user, userName) => {
   //Convertir las informaciones de google en um objecto
   db.collection("users").doc(user.uid).set({
@@ -140,7 +148,6 @@ export const observer = () => {
       // ...
     } else {
       // User is signed out.
-
       console.log("no hay usuario activo");
     }
   });
