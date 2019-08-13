@@ -11,10 +11,30 @@ export const loginGoogle = () => {
     .auth()
     .signInWithPopup(provider)
     .then(res => {
-      console.log("RES:", res);
       const user = res.user;
+      console.log("RES:", res);
+      let userName = splitGoogleDisplayName(user.displayName);
       console.log("Hola", user.displayName);
-    })
+      db.collection('users').doc(user.uid).get().then(function(doc){
+        if (doc.exists) {
+         alert("Has iniciado sesión con exito");
+         window.location.hash = '#/feed';
+        }else{
+          //si no existe lo vamos a crear con uid de usuario
+         saveUserToDatabaseAfterLogin(user, userName);
+         //  db.collection("users").doc(user.uid).set({
+         //   email:user.email,
+         //   firstName:userName.firstName,
+         //   lastName:userName.lastName,
+         //   photo:user.photoURL,
+         //   uid: user.uid
+       //})
+       alert("Has iniciado sesión con exito");
+       window.location.hash='#/feed';
+     }
+   });
+   })
+
     .catch(err => {
       console.log("El error es", err);
     });
@@ -29,8 +49,16 @@ const splitGoogleDisplayName = displayName => {
   return userName;
 };
 
-const saveUserToDatabaseAfterLogin = (uid, firstName, lastName, email) => {
-  console.log(uid, firstName, lastName, email);
+const saveUserToDatabaseAfterLogin = (user, userName) => {
+  //Convertir las informaciones de google en um objecto
+  db.collection("users").doc(user.uid).set({
+    email:user.email,
+    firstName:userName.firstName,
+    lastName:userName.lastName,
+    photo:user.photoURL,
+    uid: user.uid
+  })
+  console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
 };
 
 export const loginFacebook = () => {
