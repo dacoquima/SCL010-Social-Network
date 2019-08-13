@@ -1,103 +1,139 @@
+:root {
+  --principalBlue: #2e71a7;
+  --mustardYellow: #eda247;
+  --babyBlue: #c4d9ec;
+  --black: #272727;
+}
+
 body {
-    background: #c4d9eb;
-    font-family: 'Roboto', sans-serif;
+  background: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+button {
+  border: 0;
+}
+input {
+  background: inherit;
+  box-shadow: none;
 }
 
 h1 {
-color: white;
-text-align: center;
-padding: 2%;
+  color: var(--mustardYellow);
+  font-size: 22px;
 }
-
+::placeholder {
+  color: var(--principalBlue);
+}
 h4 {
-    font-size: 95%;
-    text-align: center;
-    color:  #2b71a7;
-    font-weight: bold;
+  font-size: 95%;
+  text-align: center;
+  color: var(--principalBlue);
+  font-weight: bold;
 }
 
 p {
-    font-size: 90%;
-    text-align: center;
+  font-size: 14px;
 }
 
 a {
-color: #2b71a7;
-text-decoration: none;
+  color: var(--principalBlue);
+  text-decoration: none;
 }
 
-#container {
-    background-color: white;
-    margin-left: 31%;
-    padding: 5%;
-    margin-top: 0%;
-    width: 25%;
+.principalHeader {
+  margin-bottom: 20px;
+}
+.secondarytext {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.actionButtonRegular {
+  background-color: var(--principalBlue);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 10px 0px;
+  max-width: 268px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-.btnIndex {
-        width: 45%;
-        padding: 3%;
-        margin: 1% auto;
-        border-radius: 16px;
-        border: none;
+.signInGoogleFacebookButton {
+  background-color: #f4f4f4;
+  color: var(--black);
+  border-radius: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 10px 0;
+  max-width: 268px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.aIndex {
-    color: #fff;
+.signInGoogleFacebookButton img {
+  margin-right: 8px;
 }
 
-.containerLogin {
-    background-color: white;
-    text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 5%;
+.imgFirstHeader {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-button {
-background-color:  #2b71a7;
-color: white;
+.mainLoginCreate {
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+}
+.createAccountLoginFormulary {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.inputFormulary {
+  border: none;
+  border-bottom: 1px solid var(--babyBlue);
+  color: var(--principalBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
 }
 
-input, button {
-    display: block;
+.iconInput {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-input {
-    width: 100%;
-    padding: 4%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.iconInput img {
+  position: absolute;
 }
 
-.btn {
-    width: 90%;
-    padding: 8%;
-    margin: 1% auto;
-    border-radius: 16px;
-    border: none;
+.iconInput input {
+  flex: 1;
 }
-
-img {
-    width: 25%;
-    margin-left: 36%;
-    margin-bottom: 0%;
-    margin-bottom: 0%;
+.footerLoginCreate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-@media(max-width:475px) {
-
-img {
- width: 50%;
- margin-left: 25%;
-}
-
-#container {
-   background-color: white;
-   width: 50%;
-   margin-left: 20%;
-   margin-right: 20%;
-   padding: 5%;
-   margin-top: 0%;
-
+.footerLoginCreate h6 {
+  margin-bottom: 10px;
 }

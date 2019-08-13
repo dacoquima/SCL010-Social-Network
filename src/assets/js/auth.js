@@ -59,6 +59,7 @@ const createAccountEmail = (userdata, secret) => {
       const user = res.user;
       userdata.uid = user.uid;
       createAccountInDb(userdata);
+      verifyEmail();
     })
     .catch(err => {
       console.log("El error es", err);
@@ -72,8 +73,7 @@ export const createAccount = () => {
     secret.password1 &&
     secret.password2 &&
     userdata.email &&
-    userdata.name &&
-    userdata.lastname &&
+    userdata.fullName &&
     secret.password1 === secret.password2
   ) {
     createAccountEmail(userdata, secret);
@@ -121,16 +121,8 @@ export const observer = () => {
 const getData = () => {
   let userdata = {};
   let secret = {};
-  userdata.name = document.querySelector("input[name=name]").value;
-  userdata.lastname = document.querySelector("input[name=lastname]").value;
+  userdata.fullName = document.querySelector("input[name=fullName]").value;
   userdata.email = document.querySelector("input[name=email]").value;
-  userdata.dateOfBirth = document.querySelector("#dateOfBirth").value;
-  userdata.gender = document.querySelector("select[name=gender]").value;
-  userdata.countryOfBirth = document.querySelector(
-    "select[name=countryOfBirth]"
-  ).value;
-  userdata.profession = document.querySelector("input[name=profession]").value;
-  userdata.bio = document.querySelector("textarea[name=bio]").value;
   // userdata.creationData = new Date();Se usará para guardar la fecha de las publicaciones
   userdata.friends = [];
   secret.password1 = document.querySelector("input[name=password1]").value;
@@ -142,3 +134,16 @@ function show() {
   let container = document.getElementById("showSome");
   container.innerHTML = "solo ve usuario activo";
 }
+
+const verifyEmail = () => {
+  var user = firebase.auth().currentUser;
+
+  user
+    .sendEmailVerification()
+    .then(function() {
+      // Email sent.
+    })
+    .catch(function(error) {
+      // An error happened.
+    });
+};

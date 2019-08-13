@@ -4,40 +4,38 @@ import { loginGoogle, loginFacebook } from "./../js/auth.js";
 export const templateCreate = () => {
   const containerCreate = document.createElement("div");
   containerCreate.className = "containerCreate";
-  const contentCreate = `<img src="./assets/img/people.png" alt="iconografia razas del mundo" />
-    <h1 class="principalHeader" >Crea tu cuenta</h1>
-    <p class="secundaryText">Llena el siguiente formulario y únete a la comunidad de ayuda a inmigrantes más grande de Chile.</p>
-    <form>
-      <input autocomplete class="formularyText" type="text" name="name" placeholder="Nombre">
-      <input autocomplete class="formularyText" type="text" name="lastname" placeholder="Apellido">
-      <input autocomplete class="formularyText" type="email" name="email" placeholder="Correo electrónico">
-      <input autocomplete class="formularyText" type="password" name="password1" placeholder="Contraseña">
-      <input autocomplete class="formularyText" type="password" name="password2" placeholder="Confirma tu contraseña">
-      <label for="dateOfBirth">Fecha de nacimiento</label>
-      <input class="" type="date" name"dateOfBirth" id="dateOfBirth">
-      <select name="gender">
-        <option value="female">Femenino</option>
-        <option value="male">Masculino</option>
-        <option value="none">Prefiero no decir</option>
-      </select>
-      <select name="countryOfBirth">
-        <option value="argentina">Argentina</option>
-        <option value="brasil">Brasil</option>
-        <option value="colombia">Colombia</option>
-        <option value="ecuador">Ecuador</option>
-        <option value="haití">Haití</option>
-        <option value="mexico">México</option>
-        <option value="panama">Panamá</option>
-        <option value="peru">Perú</option>
-        <option value="venezuela">Venezuela</option>
-      </select>
-      <input class="formularyText" type="text" name="profession" placeholder="Profesión">
-      <textarea name="bio" class="bioForm" cols="30" rows="10" placeholder="Cuéntanos un poco de ti"></textarea>   
+  const contentCreate = `<header>
+  <img src="./assets/img/first-header.png" class="imgFirstHeader" alt="iconografia razas del mundo / logo"/>
+  </header>
+
+  <main class="mainLoginCreate">
+    <h1 class="principalHeader">Crea tu cuenta</h1>
+    <p class="secondaryText">Llena el siguiente formulario y únete a la comunidad de ayuda a inmigrantes más grande de Chile.</p>
+    <form class="createAccountLoginFormulary">
+      <span class="iconInput"> 
+        <img src="./assets/img/person.svg" alt="icono persona"/>
+        <input autocomplete class="inputFormulary" type="text" name="fullName" placeholder="Nombre y Apellido">
+      </span>
+      <span class="iconInput"> 
+        <img src="./assets/img/email.svg" alt="icono email"/>
+        <input autocomplete class="inputFormulary" type="email" name="email" placeholder="Correo electrónico">
+      </span>
+      <span class="iconInput">
+        <img src="./assets/img/password.svg" alt="icono contraseña"/>
+        <input autocomplete class="inputFormulary" type="password" name="password1" placeholder="Contraseña">
+      </span>
+      <span class="iconInput">
+        <img src="./assets/img/password.svg" alt="icono contraseña"/>
+        <input autocomplete class="inputFormulary" type="password" name="password2" placeholder="Confirma tu contraseña">
+      </span>
     </form>
-     
-    <button id="sign">Regístrate</button>
-    <button id="signGg">Crear con Google</button>
-    <button id="signFb">Crear con Facebook</button>`;
+    <button class="actionButtonRegular" id="sign">Crear cuenta</button>
+    <button class="signInGoogleFacebookButton" id="signGg"><img src="./assets/img/google.svg" alt="logo google" width="19"/>Continuar con Google</button>
+    <button class="signInGoogleFacebookButton" id="signFb"><img src="./assets/img/facebook.svg" alt="logo facebook" width="19"/>Continuar con Facebook</button>
+  </main>
+  <footer class="footerLoginCreate">
+    <h6>¿Ya estás registrado? <a href="#/login">Inicia sesión</a></h6>
+  </footer>`;
 
   containerCreate.innerHTML = contentCreate;
 
