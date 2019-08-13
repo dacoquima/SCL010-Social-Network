@@ -78,10 +78,32 @@ export const loginFacebook = () => {
     .auth()
     .signInWithPopup(provider)
     .then(res => {
-      console.log("RES:", res);
       const user = res.user;
+      console.log("RES:", res);
+      let userName = splitGoogleDisplayName(user.displayName);
       console.log("Hola", user.displayName);
-    })
+    // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
+    db.collection('users').doc(user.uid).get().then(function(doc){
+     // si documento existe entramos en el muro
+     if (doc.exists) {
+      alert("Has iniciado sesión con exito");
+      window.location.hash = '#/feed';
+     }else{
+       //si no existe lo vamos a crear con uid de usuario
+      saveUserToDatabaseAfterLogin2(user, userName);
+      //  db.collection("users").doc(user.uid).set({
+      //   email:user.email,
+      //   firstName:userName.firstName,
+      //   lastName:userName.lastName,
+      //   photo:user.photoURL,
+      //   uid: user.uid
+    //})
+    alert("Has iniciado sesión con exito");
+    window.location.hash='#/feed';
+  }
+});
+})
+
     .catch(err => {
       console.log("El error es", err);
     });
@@ -100,6 +122,28 @@ const createAccountEmail = (userdata, secret) => {
     .catch(err => {
       console.log("El error es", err);
     });
+};
+
+//para dividir el nombre que está en Google para guardar en la DB
+const splitFacebookDisplayName = displayName => {
+  let splitDisplayNameArray = displayName.split(" ");
+  let userName = {
+    firstName: splitDisplayNameArray[0],
+    lastName: splitDisplayNameArray[1]
+  };
+  return userName;
+};
+//vay guardar usuario en la base de datos despues de logarse
+const saveUserToDatabaseAfterLogin2 = (user, userName) => {
+  //Convertir las informaciones de google en um objecto
+  db.collection("users").doc(user.uid).set({
+    email:user.email,
+    firstName:userName.firstName,
+    lastName:userName.lastName,
+    photo:user.photoURL,
+    uid: user.uid
+  })
+  console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
 };
 
 export const createAccount = () => {
