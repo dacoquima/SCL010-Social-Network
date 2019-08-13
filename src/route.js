@@ -4,6 +4,8 @@ import { templateFeed } from "./assets/views/templateFeed.js";
 import { templateResetPassword } from "./assets/views/templateResetPassword.js";
 import { templateSuccessCreate } from "./assets/views/templateSuccessCreate.js";
 import { templateHome } from "./assets/views/templateHome.js";
+import { templatePost } from "./assets/views/templatePost.js";
+
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -18,10 +20,14 @@ const changeRouter = hash => {
   if (hash === "#/feed") {
     return showTemplate(hash);
   }
+
   if (hash === "#/resetPassword") {
     return showTemplate(hash);
   }
   if (hash === "#/successCreate") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/post") {
     return showTemplate(hash);
   }
 };
@@ -30,7 +36,6 @@ const showTemplate = hash => {
   const router = hash.substring(2);
   const containerRoot = document.getElementById("root");
   containerRoot.innerHTML = "";
-
   switch (router) {
     case "home":
       containerRoot.appendChild(templateHome());
@@ -49,6 +54,9 @@ const showTemplate = hash => {
       break;
     case "successCreate":
       containerRoot.appendChild(templateSuccessCreate());
+    case "post":
+      containerRoot.appendChild(templatePost());
+
       break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;

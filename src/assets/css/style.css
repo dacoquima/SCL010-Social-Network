@@ -38,6 +38,11 @@ h1 {
 ::placeholder {
   color: var(--principalBlue);
 }
+h2 {
+  color: var(--mustardYellow);
+  font-size: 18px;
+  font-weight: bold;
+}
 h4 {
   font-size: 95%;
   text-align: center;
@@ -72,6 +77,7 @@ a {
   margin-bottom: 20px;
   width: 100%;
   cursor: pointer;
+  outline: none;
 }
 
 .signInGoogleFacebookButton {
@@ -88,6 +94,8 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  outline: none;
+
 }
 
 .signInGoogleFacebookButton img {
@@ -138,6 +146,7 @@ a {
 .footerLoginCreate h6 {
   margin-bottom: 10px;
 }
+
 .infoMigraMe {
   padding: 0 35px;
   display: flex;
@@ -169,4 +178,76 @@ a {
 
 .marginBottom120 {
   margin-bottom: 120px;
+}
+
+.imgAvatar {
+  width: 70px;
+  position: relative;
+  padding-right: 13px;
+}
+
+.slct-box{
+  border: none;
+  border-bottom: 1px solid var(--babyBlue);
+  color: var(--principalBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  background: inherit;
+  width: 350px;
+}
+.txtAreaStyle {
+  outline: none;
+  border: 1px solid var(--babyBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+.txtAreaStyle ::placeholder{
+  color: var(--babyBlue);
+}
+.iconInput1 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.iconInput1 input {
+  flex: 1;
+}
+.iconInput1 Img {
+  width: 20px;
+  position: absolute;
+}
+.secondarytextPost {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.iconInputBack{
+  width: 20px;
+  position: absolute;
+  padding-right: 13px;
+  padding-left: 35px;
+  align-items: center;
+}
+
+.secondHeader {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* .secondHeader img{
+  position: absolute;
+} */
+.imgSecondHeader{
+  width: 100%;
+}
+
+.formPost {
+  margin-bottom: 20px;
 }
