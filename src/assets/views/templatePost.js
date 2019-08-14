@@ -1,13 +1,13 @@
-
-
 //importar funcion que crea post
 import { createPost } from "../js/createPost.js";
 import { observer } from "./../js/auth.js";
-
+// import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 
 export const templatePost = () => {
     console.log("Puede postar");
+    // let user = saveUserToDatabaseAfterLogin();
     observer();
+    console.log(observer());
         const containerCreate = document.createElement("div");
         containerCreate.className = "containerCreate";
         const contentCreate = `<header class="secondHeader">
@@ -23,10 +23,11 @@ export const templatePost = () => {
         <span class="iconInput1"> 
        <img src="./assets/img/categoryIcon.png" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
-       <option value="Theme">Categorias</option> 
+       <option value="Categoria">Categorias</option> 
+       <option value="Alojamiento">Alojamiento</option>
        <option value="Arriendo">Arriendo</option>
        <option value="Cultura">Cultura</option>
-       <option value="Eventos">Eventos</option>
+       <option value="Gastronomia">Gastronomia</option>
        <option value="Trabajo">Trabajo</option>
        <option value="Tramites de visa">Tramites de visa</option>
        </select>
@@ -47,14 +48,9 @@ export const templatePost = () => {
         containerCreate.innerHTML = contentCreate;
     
         const btnPost = containerCreate.querySelector("#post");
-        btnPost.addEventListener("click", () => {
-          // let postCategory = document.querySelector("select[name=slctCategory]").value;
-          // let postMesage = document.querySelector("textarea[name=postTxt]").value;
-          // let postHashtags = document.querySelector("input[name=Hashtag]").value;
-          // let postLocation = document.querySelector("input[name=location]").value;  
+        btnPost.addEventListener("click", () => { 
           createPost();
-          // console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
-          
         });
         return containerCreate;
       };
+    

@@ -41,6 +41,7 @@ export const loginGoogle = () => {
     //})
     alert("Has iniciado sesión con exito");
     window.location.hash='#/post';
+    
   }
 });
 })
@@ -58,7 +59,7 @@ const splitGoogleDisplayName = displayName => {
   return userName;
 };
 //vay guardar usuario en la base de datos despues de logarse
-const saveUserToDatabaseAfterLogin = (user, userName) => {
+export const saveUserToDatabaseAfterLogin = (user, userName) => {
   let date = new Date();
   //Convertir las informaciones de google en um objecto
   db.collection("users").doc(user.uid).set({ 
@@ -149,12 +150,12 @@ export const observer = () => {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
-      // console.log("DISPLAYNAME:" displayName, "UID:" uid);
       // ...
     } else {
       // User is signed out.
       console.log("no hay usuario activo");
     }
+    return
   });
 };
 
@@ -188,3 +189,15 @@ const verifyEmail = () => {
     });
 };
 
+// export const getDataFromUser = () => {
+// db.collection('users').doc(user.uid).get().then(doc => {
+//   //agrega un ID automatico
+//   console.log(doc._document.proto.fields);
+//   let uid = doc._document.proto.fields.user.uid;
+//   let email = doc._document.proto.fields.user.email;
+//   //authorName: doc.data().user,
+//   let authorName: user.displayName,
+//   photo: user.photoURL,
+//   date: date,
+// })
+// };
