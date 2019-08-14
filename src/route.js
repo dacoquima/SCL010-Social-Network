@@ -5,7 +5,8 @@ import { templateResetPassword } from "./assets/views/templateResetPassword.js";
 import { templateSuccessCreate } from "./assets/views/templateSuccessCreate.js";
 import { templateHome } from "./assets/views/templateHome.js";
 import { templatePost } from "./assets/views/templatePost.js";
-
+import { templateProfile } from "./assets/views/templateProfile.js";
+import { templateMenu } from "./assets/views/templateMenu.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -20,7 +21,6 @@ const changeRouter = hash => {
   if (hash === "#/feed") {
     return showTemplate(hash);
   }
-
   if (hash === "#/resetPassword") {
     return showTemplate(hash);
   }
@@ -28,6 +28,9 @@ const changeRouter = hash => {
     return showTemplate(hash);
   }
   if (hash === "#/post") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/profile") {
     return showTemplate(hash);
   }
 };
@@ -48,6 +51,7 @@ const showTemplate = hash => {
       break;
     case "feed":
       containerRoot.appendChild(templateFeed());
+      containerRoot.appendChild(templateMenu());
       break;
     case "resetPassword":
       containerRoot.appendChild(templateResetPassword());
@@ -56,7 +60,11 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateSuccessCreate());
     case "post":
       containerRoot.appendChild(templatePost());
-
+      containerRoot.appendChild(templateMenu());
+      break;
+    case "profile":
+      containerRoot.appendChild(templateProfile());
+      containerRoot.appendChild(templateMenu());
       break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;

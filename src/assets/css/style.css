@@ -3,6 +3,7 @@
   --mustardYellow: #eda247;
   --babyBlue: #c4d9ec;
   --black: #272727;
+  --lightGrey: #f4f4f4;
 }
 
 body {
@@ -95,7 +96,6 @@ a {
   justify-content: center;
   cursor: pointer;
   outline: none;
-
 }
 
 .signInGoogleFacebookButton img {
@@ -186,7 +186,7 @@ a {
   padding-right: 13px;
 }
 
-.slct-box{
+.slct-box {
   border: none;
   border-bottom: 1px solid var(--babyBlue);
   color: var(--principalBlue);
@@ -202,7 +202,7 @@ a {
   position: relative;
   font-family: "Roboto", sans-serif;
 }
-.txtAreaStyle ::placeholder{
+.txtAreaStyle ::placeholder {
   color: var(--babyBlue);
 }
 .iconInput1 {
@@ -214,7 +214,7 @@ a {
 .iconInput1 input {
   flex: 1;
 }
-.iconInput1 Img {
+.iconInput1 img {
   width: 20px;
   position: absolute;
 }
@@ -228,7 +228,7 @@ a {
   margin-bottom: 20px;
 }
 
-.iconInputBack{
+.iconInputBack {
   width: 20px;
   position: absolute;
   padding-right: 13px;
@@ -244,10 +244,23 @@ a {
 /* .secondHeader img{
   position: absolute;
 } */
-.imgSecondHeader{
+.imgSecondHeader {
   width: 100%;
 }
 
 .formPost {
   margin-bottom: 20px;
+}
+.menuFooter {
+  position: fixed;
+  bottom: 0;
+  background: var(--lightGrey);
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#root {
+  margin-bottom: 60px;
 }
