@@ -15,11 +15,9 @@ export const createPost = () => {
   //user = observer();
   //console.log("USER:", user);
   //guardamos os valores elijidos por el usuario
-  let postCategory = document.querySelector("select[name=slctCategory]").value;
+          let postCategory = document.querySelector("select[name=slctCategory]").value;
           let postMesage = document.querySelector("textarea[name=postTxt]").value;
-          let postHashtags = document.querySelector("input[name=Hashtag]").value;
-          let postLocation = document.querySelector("input[name=location]").value;
-          console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
+          console.log("category:", postCategory, "Mesage:", postMesage);
 //usamos esta funcion para obtener uid de uauario corriente
           firebase.auth().onAuthStateChanged(user => {
     //obtenemos desde collecion users datos de usuario corriente con uid
@@ -35,9 +33,7 @@ export const createPost = () => {
       photo: user.photoURL,
       date: date,
       category: postCategory,
-      message: postMesage,
-      hashtag: postHashtags,
-      location: postLocation
+      message: postMesage
       // like: 1,
       // liked: 30
     })

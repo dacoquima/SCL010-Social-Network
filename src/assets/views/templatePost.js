@@ -33,14 +33,6 @@ export const templatePost = () => {
        </select>
         </span>
           <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
-          <span class="iconInput1">
-          <img src="./assets/img/hashtag.svg" alt="avatar user"/>
-          <input type="text" name="Hashtag" placeholder='Hashtags' class="inputFormulary">
-          </span>
-          <span class="iconInput1">
-          <img src="./assets/img/location.svg" alt="avatar user"/>
-          <input type="text" name="location" placeholder='Ubicación' class="inputFormulary">
-          </span>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
             </main>` 
