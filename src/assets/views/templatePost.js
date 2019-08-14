@@ -21,7 +21,7 @@ export const templatePost = () => {
         </div>
         <form class="formPost"> 
         <span class="iconInput1"> 
-       <img src="./assets/img/categoryIcon.png" alt="icono categoria">
+       <img src="./assets/img/categoryIcon.svg" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
        <option value="Categoria">Categorias</option> 
        <option value="Alojamiento">Alojamiento</option>

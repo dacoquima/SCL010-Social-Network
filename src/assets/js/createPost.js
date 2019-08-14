@@ -37,13 +37,13 @@ export const createPost = () => {
       category: postCategory,
       message: postMesage,
       hashtag: postHashtags,
-      location: postLocation,
+      location: postLocation
       // like: 1,
       // liked: 30
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
-      alert("post guardado con exito");
+      alert("post guardado con exito")
       window.location.hash='#/wall';
       readPost();
       console.log(readPost());
@@ -86,4 +86,4 @@ export const createPost = () => {
   //   console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
   // };
   
-  
+

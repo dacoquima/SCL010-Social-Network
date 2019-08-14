@@ -1,8 +1,11 @@
 import { observer } from "./../js/auth.js";
 
+
+//caro esta creando template del feed
 export const templateFeed = () => {
   observer();
   console.log("FUNCIONA LA REDIRECCIÓN");
+
     //console.log(observer());
 const containerCreate = document.createElement("div");
 containerCreate.className = "containerCreate";
@@ -24,4 +27,11 @@ const contentCreate = `<header class="secondHeader">
     btnTest .addEventListener("click", () => {
     });
 return containerCreate;
+  
+  //Dani esta probando el feed
+  const containerFeed = document.createElement("div");
+  containerFeed.classname = "containerFeed";
+  const contentFeed = `probando feed`;
+  containerFeed.innerHTML = contentFeed;
+  return containerFeed;
 };
