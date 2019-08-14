@@ -36,10 +36,10 @@
 import { createPost } from "../js/createPost.js";
 
 export const templatePost = () => {
-    console.log("Puede postar");
-        const containerCreate = document.createElement("div");
-        containerCreate.className = "containerCreate";
-        const contentCreate = `<header class="secondHeader">
+  console.log("Puede postar");
+  const containerCreate = document.createElement("div");
+  containerCreate.className = "containerCreate";
+  const contentCreate = `<header class="secondHeader">
         <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
         <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
         </header>
@@ -50,7 +50,7 @@ export const templatePost = () => {
         </div>
         <form class="formPost"> 
         <span class="iconInput1"> 
-       <img src="./assets/img/categoryIcon.png" alt="icono categoria">
+       <img src="./assets/img/categoryIcon.svg" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
        <option value="Theme">Categorias</option> 
        <option value="Arriendo">Arriendo</option>
@@ -71,19 +71,18 @@ export const templatePost = () => {
           </span>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
-            </main>` 
-      
-        containerCreate.innerHTML = contentCreate;
-    
-        const btnPost = containerCreate.querySelector("#post");
-        btnPost.addEventListener("click", () => {
-          // let postCategory = document.querySelector("select[name=slctCategory]").value;
-          // let postMesage = document.querySelector("textarea[name=postTxt]").value;
-          // let postHashtags = document.querySelector("input[name=Hashtag]").value;
-          // let postLocation = document.querySelector("input[name=location]").value;  
-          createPost();
-          // console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
-          
-        });
-        return containerCreate;
-      };
+            </main>`;
+
+  containerCreate.innerHTML = contentCreate;
+
+  const btnPost = containerCreate.querySelector("#post");
+  btnPost.addEventListener("click", () => {
+    // let postCategory = document.querySelector("select[name=slctCategory]").value;
+    // let postMesage = document.querySelector("textarea[name=postTxt]").value;
+    // let postHashtags = document.querySelector("input[name=Hashtag]").value;
+    // let postLocation = document.querySelector("input[name=location]").value;
+    createPost();
+    // console.log("category:", postCategory, "Mesage:", postMesage, "Hashtag:", postHashtags, "Location:", postLocation);
+  });
+  return containerCreate;
+};
