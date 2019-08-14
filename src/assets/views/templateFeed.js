@@ -1,11 +1,13 @@
 import { observer } from "./../js/auth.js";
 
+// ESTA EN CONSTRUCCION!
 
 //caro esta creando template del feed
 export const templateFeed = () => {
   observer();
   console.log("FUNCIONA LA REDIRECCIÓN");
     //console.log(observer());
+//firebase.auth().currentUser.uid===doc.data().uid { 
 const containerCreate = document.createElement("div");
 containerCreate.className = "containerCreate";
 const contentCreate = `<header class="secondHeader">
@@ -22,14 +24,12 @@ const contentCreate = `<header class="secondHeader">
     </main>`
     //readPost(); 
     containerCreate.innerHTML = contentCreate;
-    const btnTest = containerCreate.querySelector("#feed");
-    btnTest .addEventListener("click", () => {
-    });
-return containerCreate;
-
+    // const btnTest = containerCreate.querySelector("#feed");
+    // btnTest .addEventListener("click", () => {
+    // });
+ // }
+  return containerCreate;
 };
-
-
   // //Dani esta probando el feed
   // const containerFeed = document.createElement("div");
   // containerFeed.classname = "containerFeed";

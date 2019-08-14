@@ -8,9 +8,9 @@ export const templatePost = () => {
     // let user = saveUserToDatabaseAfterLogin();
     observer();
     console.log(observer());
-        const containerCreate = document.createElement("div");
-        containerCreate.className = "containerCreate";
-        const contentCreate = `<header class="secondHeader">
+        const containerPost = document.createElement("div");
+        containerPost.className = "containerPost";
+        const contentPost = `<header class="secondHeader">
         <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
         <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
         </header>
@@ -32,17 +32,17 @@ export const templatePost = () => {
        <option value="Tramites de visa">Tramites de visa</option>
        </select>
         </span>
-          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
+          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="3" placeholder="¿Tienes algún dato?"></textarea>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
             </main>` 
       
-        containerCreate.innerHTML = contentCreate;
+            containerPost.innerHTML = contentPost;
     
-        const btnPost = containerCreate.querySelector("#post");
+        const btnPost = containerPost.querySelector("#post");
         btnPost.addEventListener("click", () => { 
           createPost();
         });
-        return containerCreate;
+        return containerPost;
       };
     

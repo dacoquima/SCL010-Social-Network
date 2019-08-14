@@ -264,3 +264,20 @@ a {
 #root {
   margin-bottom: 60px;
 }
+
+.imgAvatarPost {
+  width: 40px;
+  position: relative;
+  padding-right: 13px;
+}
+
+.txtAreaStylePosted {
+  outline: none;
+  border: none;
+  padding: 0px 16px 16px 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+.txtAreaStylePosted ::placeholder {
+  color: var(--babyBlue);
+}

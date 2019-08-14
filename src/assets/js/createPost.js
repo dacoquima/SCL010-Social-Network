@@ -4,7 +4,6 @@ import { observer } from './auth.js'
 //guardamos firestore en variable
 let db = firebase.firestore();
 
-
 // funcion para crear posts
 export const createPost = () => {
   observer();
@@ -40,7 +39,7 @@ export const createPost = () => {
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
       alert("post guardado con exito")
-      window.location.hash='#/feed';
+      //window.location.hash='#/feed';
       readPost();
       console.log(readPost());
     })
@@ -54,14 +53,32 @@ export const createPost = () => {
   // funcion para leer posts
   //const containerCreate = document.createElement("div");
   export const readPost = () => {
+    const containerFeed = document.getElementById("container");
   db.collection("posts").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().message}`);
+        // console.log(`${doc.id} => ${doc.data().message}`);
         //templateFeed(doc);
+        // const containerFeed = document.createElement("div");
+        // containerFeed.className = "containerFeed";
+        let postDate = new Date();
+        containerFeed.innerHTML += 
+        `<main id = "templateWall" class="mainLoginCreate">
+<div class = "perfil">
+        <img src="./assets/img/user.svg" class="imgAvatarPost" alt="avatar user"/><h2>${doc.data().authorName}</h2>
+        </div>
+        <h6>${postDate}<h6>
+        <h2>${doc.data().category}</h2>
+  <textarea name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2">${doc.data().message}</textarea>
+    </main>`;
+    //return containerFeed;
     })
 })
 };
 
+// {/* <header class="secondHeader">
+// <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
+// <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
+// </header> */}
 
   // const splitHashtag = (postHashtags) => {
     
