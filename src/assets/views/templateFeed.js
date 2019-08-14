@@ -5,7 +5,6 @@ import { observer } from "./../js/auth.js";
 export const templateFeed = () => {
   observer();
   console.log("FUNCIONA LA REDIRECCIÓN");
-
     //console.log(observer());
 const containerCreate = document.createElement("div");
 containerCreate.className = "containerCreate";

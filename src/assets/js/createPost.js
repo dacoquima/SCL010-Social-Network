@@ -40,7 +40,7 @@ export const createPost = () => {
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
       alert("post guardado con exito")
-      window.location.hash='#/wall';
+      window.location.hash='#/feed';
       readPost();
       console.log(readPost());
     })
