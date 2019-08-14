@@ -1,0 +1,266 @@
+:root {
+  --principalBlue: #2e71a7;
+  --mustardYellow: #eda247;
+  --babyBlue: #c4d9ec;
+  --black: #272727;
+  --lightGrey: #f4f4f4;
+}
+
+body {
+  background: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+button {
+  border: 0;
+}
+input {
+  background: inherit;
+  box-shadow: none;
+}
+
+h1 {
+  color: var(--mustardYellow);
+  font-size: 22px;
+}
+::placeholder {
+  color: var(--principalBlue);
+}
+h2 {
+  color: var(--mustardYellow);
+  font-size: 18px;
+  font-weight: bold;
+}
+h4 {
+  font-size: 95%;
+  text-align: center;
+  color: var(--principalBlue);
+  font-weight: bold;
+}
+
+p {
+  font-size: 14px;
+}
+
+a {
+  color: var(--principalBlue);
+  text-decoration: none;
+}
+
+.principalHeader {
+  margin-bottom: 20px;
+}
+.secondaryText {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.actionButtonRegular {
+  background-color: var(--principalBlue);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 10px 0px;
+  max-width: 268px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.signInGoogleFacebookButton {
+  background-color: #f4f4f4;
+  color: var(--black);
+  border-radius: 20px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 10px 0;
+  max-width: 268px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.signInGoogleFacebookButton img {
+  margin-right: 8px;
+}
+
+.imgFirstHeader {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mainLoginCreate {
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+}
+.createAccountLoginFormulary {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.inputFormulary {
+  border: none;
+  border-bottom: 1px solid var(--babyBlue);
+  color: var(--principalBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+}
+.iconInput {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.iconInput img {
+  position: absolute;
+}
+
+.iconInput input {
+  flex: 1;
+}
+.footerLoginCreate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footerLoginCreate h6 {
+  margin-bottom: 10px;
+}
+
+.infoMigraMe {
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.infoMigraMefeature {
+  flex: 1;
+  width: auto;
+  height: 243px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px var(--babyBlue);
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+.infoMigraMeImg {
+  margin: 20px;
+}
+.infoMigraMeText {
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.marginBottom120 {
+  margin-bottom: 120px;
+}
+
+.imgAvatar {
+  width: 70px;
+  position: relative;
+  padding-right: 13px;
+}
+
+.slct-box {
+  border: none;
+  border-bottom: 1px solid var(--babyBlue);
+  color: var(--principalBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  background: inherit;
+  width: 350px;
+}
+.txtAreaStyle {
+  outline: none;
+  border: 1px solid var(--babyBlue);
+  padding: 20px 16px 16px 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+.txtAreaStyle ::placeholder {
+  color: var(--babyBlue);
+}
+.iconInput1 {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.iconInput1 input {
+  flex: 1;
+}
+.iconInput1 img {
+  width: 20px;
+  position: absolute;
+}
+.secondarytextPost {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.perfil {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.iconInputBack {
+  width: 20px;
+  position: absolute;
+  padding-right: 13px;
+  padding-left: 35px;
+  align-items: center;
+}
+
+.secondHeader {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* .secondHeader img{
+  position: absolute;
+} */
+.imgSecondHeader {
+  width: 100%;
+}
+
+.formPost {
+  margin-bottom: 20px;
+}
+.menuFooter {
+  position: fixed;
+  bottom: 0;
+  background: var(--lightGrey);
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#root {
+  margin-bottom: 60px;
+}
