@@ -59,10 +59,6 @@ export const readPost = () => {
     containerFeedPost.innerHTML =  "";
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data().message}`);
-        //templateFeed(doc);
-        // const containerFeed = document.createElement("div");
-        // containerFeed.className = "containerFeed";
-        //let postDate = new Date();
         containerFeedPost.innerHTML += 
         `<main id = "templateWall" class="mainLoginCreate">
           <div class = "perfil">
@@ -75,17 +71,15 @@ export const readPost = () => {
           <button id='deletePost${doc.id}'>Borrar</button>
           <button id='editPost${doc.id}'>Editar</button>
         </main>`
-        
     });
     querySnapshot.forEach((doc) => {
       events(doc);
     })
     });
-          
-          
     return containerFeedPost;
     };
     
+//funcion para los eventos dentro de los posts   
 export const events = (doc) =>{
   const btnDeletePost = document.getElementById('deletePost'+doc.id);
   btnDeletePost.addEventListener("click", () => {
@@ -93,7 +87,6 @@ export const events = (doc) =>{
   })
 
 }
-
 
 // BORRAR POSTS
 export const deletePost = (id) => {
@@ -107,49 +100,3 @@ db.collection("posts").doc(id).delete().then(function() {
 })
 }
 };
-//   // LEER POSTS
-//   //const containerCreate = document.createElement("div");
-//   export const readPost = () => {
-//     const containerFeed = document.getElementById("container");
-//   db.collection("posts").onSnapshot((querySnapshot) => {
-//     // containerFeed.innerHTML =  "";
-//     querySnapshot.forEach((doc) => {
-//         console.log(`${doc.id} => ${doc.data().message}`);
-//         //templateFeed(doc);
-//         // const containerFeed = document.createElement("div");
-//         // containerFeed.className = "containerFeed";
-//         let postDate = new Date();
-//         containerFeed.innerHTML += 
-//         `<main id = "templateWall" class="mainLoginCreate">
-// <div class = "perfil">
-//         <img src="./assets/img/user.svg" class="imgAvatarPost" alt="avatar user"/><h2>${doc.data().authorName}</h2>
-//         </div>
-//         <h6>${postDate}<h6>
-//         <p>${doc.id}</p>
-//         <h2>${doc.data().category}</h2>
-//   <textarea name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2">${doc.data().message}</textarea>
-//   <button id='deletePost'>Borrar</button>
-//   <button id='editPost'>Editar</button>
-//     </main>`
-//     const btnDeletePost = document.getElementById("deletePost");
-//     btnDeletePost.addEventListener("click", () => {
-//       deletePost(doc.id);
-//         })
-//     return containerFeed;
-//     })
-// })
-// };
-
-// // BORRAR POSTS
-// export const deletePost = (id) => {
-//   if(confirm("¿Seguro que quieres borrar tu publicación?")){
-// db.collection("posts").doc(id).delete().then(function() {
-//   console.log("Document successfully deleted!");
-// }).catch(function(error) {
-//   console.error("Error removing document: ", error);
-// })
-// }
-// };
-
-
-// {/* <h6>${postDate}<h6> */}
