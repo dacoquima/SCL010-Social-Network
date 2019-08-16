@@ -1,4 +1,4 @@
-export const templateEditPerfi = () => {
+export const templateEditProfile = () => {
   const containerCreate = document.createElement("div");
   containerCreate.className = "containerCreate";
   //todo ver como traigo los datos que ya tiene el usuario en la base de datos.
