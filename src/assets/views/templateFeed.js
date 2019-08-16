@@ -1,15 +1,14 @@
 import { observer } from "./../js/auth.js";
 
-
 //caro esta creando template del feed
 export const templateFeed = () => {
   observer();
   console.log("FUNCIONA LA REDIRECCIÓN");
 
-    //console.log(observer());
-const containerCreate = document.createElement("div");
-containerCreate.className = "containerCreate";
-const contentCreate = `<header class="secondHeader">
+  //console.log(observer());
+  const containerFeed = document.createElement("div");
+  containerFeed.className = "containerFeed";
+  const contentFeed = `<header class="secondHeader">
 <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
 <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
 </header>
@@ -20,18 +19,10 @@ const contentCreate = `<header class="secondHeader">
         <h2>Tema</h2>
   <textarea name="postTxtWall" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
   <button id='wall' class="actionButtonRegular">Publicar</button>
-    </main>`
-    //readPost(); 
-    containerCreate.innerHTML = contentCreate;
-    const btnTest = containerCreate.querySelector("#wall");
-    btnTest .addEventListener("click", () => {
-    });
-return containerCreate;
-  
-  //Dani esta probando el feed
-  const containerFeed = document.createElement("div");
-  containerFeed.classname = "containerFeed";
-  const contentFeed = `probando feed`;
+    </main>`;
+  //readPost();
   containerFeed.innerHTML = contentFeed;
+  const btnTest = containerFeed.querySelector("#wall");
+  btnTest.addEventListener("click", () => {});
   return containerFeed;
 };

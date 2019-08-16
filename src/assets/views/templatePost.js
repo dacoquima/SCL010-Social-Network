@@ -4,13 +4,13 @@ import { observer } from "./../js/auth.js";
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 
 export const templatePost = () => {
-    console.log("Puede postar");
-    // let user = saveUserToDatabaseAfterLogin();
-    observer();
-    console.log(observer());
-        const containerCreate = document.createElement("div");
-        containerCreate.className = "containerCreate";
-        const contentCreate = `<header class="secondHeader">
+  console.log("Puede postar");
+  // let user = saveUserToDatabaseAfterLogin();
+  observer();
+  console.log(observer());
+  const containerCreate = document.createElement("div");
+  containerCreate.className = "containerCreate";
+  const contentCreate = `<header class="secondHeader">
         <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
         <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
         </header>
@@ -43,14 +43,13 @@ export const templatePost = () => {
           </span>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
-            </main>` 
-      
-        containerCreate.innerHTML = contentCreate;
-    
-        const btnPost = containerCreate.querySelector("#post");
-        btnPost.addEventListener("click", () => { 
-          createPost();
-        });
-        return containerCreate;
-      };
-    
+            </main>`;
+
+  containerCreate.innerHTML = contentCreate;
+
+  const btnPost = containerCreate.querySelector("#post");
+  btnPost.addEventListener("click", () => {
+    createPost();
+  });
+  return containerCreate;
+};

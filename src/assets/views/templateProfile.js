@@ -1,3 +1,5 @@
+import { signOutAccount } from "./../js/auth.js";
+import { profile } from "./../js/profile.js";
 export const templateProfile = () => {
   const containerProfile = document.createElement("div");
   containerProfile.className = "containerProfile";
@@ -30,13 +32,18 @@ export const templateProfile = () => {
       </div>
     </div>
     <hr/>
-
-    
-
-
   </main>
   `;
 
   containerProfile.innerHTML = contentProfile;
+  profile();
+  const goToEditProfile = containerProfile.querySelector("#editProfile");
+  goToEditProfile.addEventListener("click", () => {
+    location.href = "#/editProfile";
+  });
+  const goToLogin = containerProfile.querySelector("#logOut");
+  goToLogin.addEventListener("click", () => {
+    signOutAccount();
+  });
   return containerProfile;
 };
