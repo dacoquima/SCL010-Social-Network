@@ -1,17 +1,17 @@
 //importar funcion que crea post
-import { createPost } from "../js/createPost.js";
+import { createPost } from "../js/post.js";
 import { observer } from "./../js/auth.js";
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
-
+const containerFeedPost = document.getElementById("root2");
 export const templatePost = () => {
+  containerFeedPost.innerHTML =  "";
     console.log("Puede postar");
     // let user = saveUserToDatabaseAfterLogin();
     observer();
-    console.log(observer());
         const containerPost = document.createElement("div");
         containerPost.className = "containerPost";
         const contentPost = `<header class="secondHeader">
-        <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
+        <a id="feedIcon" class="iconInputBack" href="#/feed"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
         <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
         </header>
         <main id = "templatePost" class="mainLoginCreate">
@@ -46,3 +46,4 @@ export const templatePost = () => {
         return containerPost;
       };
     
+      

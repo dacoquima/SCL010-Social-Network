@@ -21,25 +21,3 @@ export const createAccountInDb = data => {
     })
     .catch(err => console.log(err));
 };
-
-// //crea nueva colección para posts
-// export const creatPostInDb = () => {
-// db.collection("posts").add({
-//   uid: 7637626823782,
-// 	firstName: "Carolina",
-// 	lastName: "Guido",
-//   date: "11/08/2019",
-//   category: "arriendo",
-//   message: "Hola Mundo",
-//   hashtag: "#providencia",
-//   location: "Santiago",
-// 	like: 1,
-// 	liked: 30
-// })
-// .then(function(docRef) {
-//   console.log("Document written with ID: ", docRef.id);
-// })
-// .catch(function(error) {
-//   console.error("Error adding document: ", error);
-// });
-// };
