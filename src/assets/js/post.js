@@ -71,10 +71,12 @@ export const readPost = () => {
           <h2 id= "categoryPost${doc.id}">${doc.data().category}</h2>
           <p id = "messagePost${doc.id}" name="postTxtWallFinal" class="txtAreaStylePost">${doc.data().message}</p>
           <textarea id = "editTextPost${doc.id}" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
-          <button id='deletePost${doc.id}'>Borrar</button>
-          <button id='editPost${doc.id}'>Editar</button>
-          <button id='savePost${doc.id}' style="display:none">Guardar</button>
-          <button id='likePost${doc.id}'>Like + </button>
+          <div class="buttonsPost">
+            <button class="actionButtonRegular littleButton" id='deletePost${doc.id}'>Borrar</button>
+            <button class="actionButtonRegular littleButton" id='editPost${doc.id}'>Editar</button>
+            <button class="actionButtonRegular littleButton" id='savePost${doc.id}' style="display:none">Guardar</button>
+            <button class="actionButtonRegular littleButton" id='likePost${doc.id}'>Like + </button>
+          </div>
           <p>${doc.data().like.length} likes</p>
         </main>`
     });
@@ -97,6 +99,9 @@ export const events = (doc) => {
     btnEditPost.addEventListener("click", () => {
       editPost(doc.id);
     })
+  } else {
+    document.getElementById(`editPost${doc.id}`).style.display = "none";
+    document.getElementById(`deletePost${doc.id}`).style.display = "none";
   }
 }
 export const likeEvent = (doc) => {
