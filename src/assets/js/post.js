@@ -105,12 +105,20 @@ export const events = (doc) => {
   }
 }
 export const likeEvent = (doc) => {
-  const btnLikePost = document.getElementById('likePost' + doc.id);
-  btnLikePost.addEventListener("click", () => {
-    likePost(doc.id, doc.data().like);
-  })
-}
+  if (doc.data().like.includes(firebase.auth().currentUser.uid)) {
+    // dislike
+    const btnLikePost = document.getElementById('likePost' + doc.id);
+    btnLikePost.addEventListener("click", () => {
+      unlikePost(doc.id, doc.data().like);
+    })
+  } else {
+    const btnLikePost = document.getElementById('likePost' + doc.id);
+    btnLikePost.addEventListener("click", () => {
+      likePost(doc.id, doc.data().like);
+    })
+  }
 
+}
 
 // BORRAR POSTS
 export const deletePost = (id) => {
@@ -169,6 +177,19 @@ export const likePost = (id, like) => {
     console.log(user);
     like.push(user.uid)
     console.log(like)
+    let docRef = db.collection('posts').doc(id);
+    return docRef.update({
+      like: like
+    }).then((e) => {
+      console.log(e)
+    })
+  });
+}
+
+export const unlikePost = (id, like) => {
+  firebase.auth().onAuthStateChanged(user => {
+    let idPosition = like.indexOf(user.uid);
+    like.splice(idPosition, 1);
     let docRef = db.collection('posts').doc(id);
     return docRef.update({
       like: like
