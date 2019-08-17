@@ -24,9 +24,11 @@ p {
   padding: 0;
   font-weight: normal;
 }
+
 button {
   border: 0;
 }
+
 input {
   background: inherit;
   box-shadow: none;
@@ -36,14 +38,17 @@ h1 {
   color: var(--mustardYellow);
   font-size: 22px;
 }
+
 ::placeholder {
   color: var(--principalBlue);
 }
+
 h2 {
   color: var(--mustardYellow);
   font-size: 18px;
   font-weight: bold;
 }
+
 h4 {
   font-size: 95%;
   text-align: center;
@@ -63,10 +68,12 @@ a {
 .principalHeader {
   margin-bottom: 20px;
 }
+
 .secondaryText {
   margin-bottom: 20px;
   font-size: 16px;
 }
+
 .actionButtonRegular {
   background-color: var(--principalBlue);
   color: white;
@@ -112,11 +119,13 @@ a {
   display: flex;
   flex-direction: column;
 }
+
 .createAccountLoginFormulary {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 }
+
 .inputFormulary {
   border: none;
   border-bottom: 1px solid var(--babyBlue);
@@ -124,6 +133,7 @@ a {
   padding: 20px 16px 16px 30px;
   position: relative;
 }
+
 .iconInput {
   display: flex;
   align-items: center;
@@ -137,12 +147,14 @@ a {
 .iconInput input {
   flex: 1;
 }
+
 .footerLoginCreate {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .footerLoginCreate h6 {
   margin-bottom: 10px;
 }
@@ -153,6 +165,7 @@ a {
   flex-direction: column;
   margin-top: 60px;
 }
+
 .infoMigraMefeature {
   flex: 1;
   width: auto;
@@ -167,9 +180,11 @@ a {
   align-items: center;
   padding: 0 20px;
 }
+
 .infoMigraMeImg {
   margin: 20px;
 }
+
 .infoMigraMeText {
   margin-bottom: 20px;
   font-size: 16px;
@@ -195,6 +210,7 @@ a {
   background: inherit;
   width: 350px;
 }
+
 .txtAreaStyle {
   outline: none;
   border: 1px solid var(--babyBlue);
@@ -202,26 +218,32 @@ a {
   position: relative;
   font-family: "Roboto", sans-serif;
 }
+
 .txtAreaStyle ::placeholder {
   color: var(--babyBlue);
 }
+
 .iconInput1 {
   display: flex;
   align-items: center;
   position: relative;
   margin-bottom: 20px;
 }
+
 .iconInput1 input {
   flex: 1;
 }
+
 .iconInput1 img {
   width: 20px;
   position: absolute;
 }
+
 .secondarytextPost {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 .perfil {
   display: flex;
   align-items: center;
@@ -241,6 +263,7 @@ a {
   align-items: center;
   position: relative;
 }
+
 /* .secondHeader img{
   position: absolute;
 } */
@@ -251,6 +274,7 @@ a {
 .formPost {
   margin-bottom: 20px;
 }
+
 .menuFooter {
   position: fixed;
   bottom: 0;
@@ -263,4 +287,32 @@ a {
 
 #root {
   margin-bottom: 60px;
+}
+
+.imgAvatarPost {
+  width: 40px;
+  position: relative;
+  padding-right: 13px;
+}
+
+.txtAreaStylePosted {
+  outline: none;
+  border: none;
+  padding: 0px 16px 16px 30px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+.txtAreaStylePosted ::placeholder {
+  color: var(--babyBlue);
+}
+
+.buttonsPost {
+  display: flex;
+
+}
+
+.actionButtonRegular.littleButton {
+  max-width: 100px;
+
 }

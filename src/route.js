@@ -1,12 +1,30 @@
-import { templateLogin } from "./assets/views/templateLogin.js";
-import { templateCreate } from "./assets/views/templateCreate.js";
-import { templateFeed } from "./assets/views/templateFeed.js";
-import { templateResetPassword } from "./assets/views/templateResetPassword.js";
-import { templateSuccessCreate } from "./assets/views/templateSuccessCreate.js";
-import { templateHome } from "./assets/views/templateHome.js";
-import { templatePost } from "./assets/views/templatePost.js";
-import { templateProfile } from "./assets/views/templateProfile.js";
-import { templateMenu } from "./assets/views/templateMenu.js";
+import {
+  templateLogin
+} from "./assets/views/templateLogin.js";
+import {
+  templateCreate
+} from "./assets/views/templateCreate.js";
+import {
+  templateFeed
+} from "./assets/views/templateFeed.js";
+import {
+  templateResetPassword
+} from "./assets/views/templateResetPassword.js";
+import {
+  templateSuccessCreate
+} from "./assets/views/templateSuccessCreate.js";
+import {
+  templateHome
+} from "./assets/views/templateHome.js";
+import {
+  templatePost
+} from "./assets/views/templatePost.js";
+import {
+  templateProfile
+} from "./assets/views/templateProfile.js";
+import {
+  templateMenu
+} from "./assets/views/templateMenu.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -28,6 +46,9 @@ const changeRouter = hash => {
     return showTemplate(hash);
   }
   if (hash === "#/post") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/editPost") {
     return showTemplate(hash);
   }
   if (hash === "#/profile") {
@@ -60,6 +81,10 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateSuccessCreate());
     case "post":
       containerRoot.appendChild(templatePost());
+      containerRoot.appendChild(templateMenu());
+      break;
+    case "editPost":
+      containerRoot.appendChild(templateEditPost());
       containerRoot.appendChild(templateMenu());
       break;
     case "profile":

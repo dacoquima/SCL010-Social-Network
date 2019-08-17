@@ -1,6 +1,11 @@
-import { loginGoogle, loginFacebook, loginWithEmail } from "./../js/auth.js";
-
+import {
+  loginGoogle,
+  loginFacebook,
+  loginWithEmail
+} from "./../js/auth.js";
+const containerFeedPost = document.getElementById("root2");
 export const templateLogin = () => {
+  containerFeedPost.innerHTML = "";
   const containerLogin = document.createElement("div");
   containerLogin.className = "containerLogin";
   const contentLogin = `<header>

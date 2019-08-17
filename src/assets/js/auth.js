@@ -1,6 +1,12 @@
-import { connect } from "./database.js";
-import { createAccountInDb } from "./../js/database.js";
-import { templateSuccessCreate } from "../views/templateSuccessCreate.js";
+import {
+  connect
+} from "./database.js";
+import {
+  createAccountInDb
+} from "./../js/database.js";
+import {
+  templateSuccessCreate
+} from "../views/templateSuccessCreate.js";
 
 
 //variable de los datos como global
@@ -15,16 +21,17 @@ export const loginGoogle = () => {
   firebase
     .auth()
     .signInWithPopup(provider)
-    
+
     .then(res => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    // var token = res.credential.accessToken;
-    // The signed-in user info
-     //constante copiada desde firebase auth login con google
-    const user = res.user;
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      // var token = res.credential.accessToken;
+      // The signed-in user info
+      //constante copiada desde firebase auth login con google
+      const user = res.user;
       console.log("RES:", res);
-      let userName = splitGoogleDisplayName(user.displayName);
+      let userName = user.displayName;
       console.log("Hola", user.displayName);
+<<<<<<< HEAD
     // let db = firebase.firestore();
     // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
     db.collection('users').doc(user.uid).get().then(function(doc){
@@ -49,33 +56,41 @@ export const loginGoogle = () => {
   }
 });
 })
+=======
+      // let db = firebase.firestore();
+      // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
+      db.collection('users').doc(user.uid).get().then(function (doc) {
+        // si documento existe entramos en el muro
+        if (doc.exists) {
+          alert("Has iniciado sesión con exito");
+          window.location.hash = '#/post';
+        } else {
+          //si no existe lo vamos a crear con uid de usuario
+          saveUserToDatabaseAfterLogin(user, userName);
+          alert("Has iniciado sesión con exito");
+          window.location.hash = '#/post';
+
+        }
+      });
+    })
+>>>>>>> e637e9ff1cca15f434b93445249555758eab346b
     .catch(err => {
       console.log("El error es", err);
     });
 };
-//para dividir el nombre que está en Google para guardar en la DB
-const splitGoogleDisplayName = displayName => {
-  let splitDisplayNameArray = displayName.split(" ");
-  let userName = {
-    firstName: splitDisplayNameArray[0],
-    lastName: splitDisplayNameArray[1]
-  };
-  return userName;
-};
+
 //vay guardar usuario en la base de datos despues de logarse
 export const saveUserToDatabaseAfterLogin = (user, userName) => {
   let date = new Date();
   //Convertir las informaciones de google en um objecto
-  db.collection("users").doc(user.uid).set({ 
-  //db.collection("users").add({
-    email:user.email,
-    firstName:userName.firstName,
-    lastName:userName.lastName,
-    photo:user.photoURL,
+  db.collection("users").doc(user.uid).set({
+    email: user.email,
+    displayName: userName,
+    photo: user.photoURL,
     uid: user.uid,
     date: date
   })
-  console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
+  console.log("uid:", user.uid, "email:", user.email);
 };
 
 export const loginFacebook = () => {
@@ -89,6 +104,7 @@ export const loginFacebook = () => {
     .then(res => {
       const user = res.user;
       console.log("RES:", res);
+<<<<<<< HEAD
       let userName = splitGoogleDisplayName(user.displayName);
       console.log("Hola", user.displayName);
     // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
@@ -113,6 +129,25 @@ export const loginFacebook = () => {
 });
 })
 
+=======
+      let userName = user.displayName;
+      console.log("Hola", user.displayName);
+      // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
+      db.collection('users').doc(user.uid).get().then(function (doc) {
+        // si documento existe entramos en el muro
+        if (doc.exists) {
+          alert("Has iniciado sesión con exito");
+          window.location.hash = '#/feed';
+        } else {
+          //si no existe lo vamos a crear con uid de usuario
+          saveUserToDatabaseAfterLogin2(user, userName);
+
+          alert("Has iniciado sesión con exito");
+          window.location.hash = '#/feed';
+        }
+      });
+    })
+>>>>>>> e637e9ff1cca15f434b93445249555758eab346b
     .catch(err => {
       console.log("El error es", err);
     });
@@ -122,6 +157,7 @@ export const loginFacebook = () => {
 const saveUserToDatabaseAfterLogin2 = (user, userName) => {
   //Convertir las informaciones de google en um objecto
   db.collection("users").doc(user.uid).set({
+<<<<<<< HEAD
     email:user.email,
     firstName:userName.firstName,
     lastName:userName.lastName,
@@ -129,6 +165,14 @@ const saveUserToDatabaseAfterLogin2 = (user, userName) => {
     uid: user.uid
   })
   console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
+=======
+    email: user.email,
+    displayName: userName,
+    photo: user.photoURL,
+    uid: user.uid
+  })
+  console.log("uid:", user.uid, "email:", user.email);
+>>>>>>> e637e9ff1cca15f434b93445249555758eab346b
 };
 
 const createAccountEmail = (userdata, secret) => {
@@ -148,7 +192,10 @@ const createAccountEmail = (userdata, secret) => {
 };
 
 export const createAccount = () => {
-  let { secret, userdata } = getData();
+  let {
+    secret,
+    userdata
+  } = getData();
 
   if (
     secret.password1 &&
@@ -168,7 +215,7 @@ export const loginWithEmail = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(res => (location.href = "#/post"))
-    .catch(function(error) {
+    .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -177,9 +224,9 @@ export const loginWithEmail = (email, password) => {
 };
 
 export const observer = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      
+
       // User is signed in.
       console.log("existe usuario activo");
       // show();
@@ -202,29 +249,27 @@ export const observer = () => {
 const getData = () => {
   let userdata = {};
   let secret = {};
-  userdata.fullName = document.querySelector("input[name=fullName]").value;
+  userdata.displayName = document.querySelector("input[name=fullName]").value;
   userdata.email = document.querySelector("input[name=email]").value;
   // userdata.creationData = new Date();Se usará para guardar la fecha de las publicaciones
   userdata.friends = [];
   secret.password1 = document.querySelector("input[name=password1]").value;
   secret.password2 = document.querySelector("input[name=password2]").value;
-  return { secret, userdata };
+  return {
+    secret,
+    userdata
+  };
 };
-
-function show() {
-  let container = document.getElementById("showSome");
-  container.innerHTML = "solo ve usuario activo";
-}
 
 const verifyEmail = () => {
   var user = firebase.auth().currentUser;
 
   user
     .sendEmailVerification()
-    .then(function() {
+    .then(function () {
       // Email sent.
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened.
     });
 };
@@ -236,11 +281,11 @@ export const rememberPassword = () => {
 
   auth
     .sendPasswordResetEmail(emailAddress)
-    .then(function() {
+    .then(function () {
       console.log("Correo de reestablecimiento de contraseña enviado");
       location.href = "#/login";
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened.
     });
 };

@@ -1,10 +1,17 @@
-import { observer } from "./../js/auth.js";
+import {
+  observer
+} from "./../js/auth.js";
+import {
+  readPost
+} from "../js/post.js";
 
 
 //caro esta creando template del feed
 export const templateFeed = () => {
   observer();
+  readPost();
   console.log("FUNCIONA LA REDIRECCIÓN");
+<<<<<<< HEAD
     //console.log(observer());
 const containerCreate = document.createElement("div");
 containerCreate.className = "containerCreate";
@@ -36,3 +43,23 @@ return containerCreate;
   // const contentFeed = `probando feed`;
   // containerFeed.innerHTML = contentFeed;
   // return containerFeed;
+=======
+  //console.log(observer());
+  //firebase.auth().currentUser.uid===doc.data().uid { 
+  const containerFeed = document.createElement("div");
+  containerFeed.className = "containerFeed";
+  const contentFeed = `<header class="secondHeader">
+<a id="feedIcon" class="iconInputBack" href="#/feed"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
+<img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
+</header>`
+  //readPost(); 
+  containerFeed.innerHTML = contentFeed;
+
+  // const btnTest = containerCreate.querySelector("#feed");
+  // btnTest .addEventListener("click", () => {
+  // });
+  // }
+
+  return containerFeed;
+};
+>>>>>>> e637e9ff1cca15f434b93445249555758eab346b
