@@ -1,4 +1,6 @@
+const containerFeedPost = document.getElementById("root2");
 export const templateHome = () => {
+  containerFeedPost.innerHTML = "";
   const containerHome = document.createElement("div");
   containerHome.className = "containerHome";
   const contentHome = `<header>
