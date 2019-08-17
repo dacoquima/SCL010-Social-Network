@@ -1,23 +1,30 @@
 //importar funcion que crea post
-import { createPost } from "../js/createPost.js";
-import { observer } from "./../js/auth.js";
-// import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
+import {
+  createPost
+} from "../js/post.js";
 
+// import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
+const containerFeedPost = document.getElementById("root2");
 export const templatePost = () => {
-    console.log("Puede postar");
-    // let user = saveUserToDatabaseAfterLogin();
-    observer();
-    console.log(observer());
-        const containerCreate = document.createElement("div");
-        containerCreate.className = "containerCreate";
-        const contentCreate = `<header class="secondHeader">
-        <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
-        <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
-        </header>
-        <main id = "templatePost" class="mainLoginCreate">
-        <div><h1 class="secondarytextPost">Nueva publicación</h1></div>
-        <div class = "perfil">
-        <img src="./assets/img/user.svg" class="imgAvatar" alt="avatar user"/><h2>Ana María González</h2>
+  containerFeedPost.innerHTML = "";
+  let actualUser = firebase.auth().currentUser;
+  console.log(actualUser);
+
+  const containerPost = document.createElement("div");
+  containerPost.className = "containerPost";
+
+  const contentPost = `
+    <header class="secondHeader">
+      <a id="feedIcon" class="iconInputBack" href="#/feed"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
+      <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
+    </header>
+    <main id = "templatePost" class="mainLoginCreate">
+      <div>
+        <h1 class="secondarytextPost">Nueva publicación</h1>
+      </div>
+      <div class = "perfil">
+        <img src="${actualUser.photoURL}" class="imgAvatar" alt="avatar user"/>
+        <h2>${actualUser.displayName}</h2>
         </div>
         <form class="formPost"> 
         <span class="iconInput1"> 
@@ -32,25 +39,16 @@ export const templatePost = () => {
        <option value="Tramites de visa">Tramites de visa</option>
        </select>
         </span>
-          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
-          <span class="iconInput1">
-          <img src="./assets/img/hashtag.svg" alt="avatar user"/>
-          <input type="text" name="Hashtag" placeholder='Hashtags' class="inputFormulary">
-          </span>
-          <span class="iconInput1">
-          <img src="./assets/img/location.svg" alt="avatar user"/>
-          <input type="text" name="location" placeholder='Ubicación' class="inputFormulary">
-          </span>
+          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="3" placeholder="¿Tienes algún dato?"></textarea>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
-            </main>` 
-      
-        containerCreate.innerHTML = contentCreate;
-    
-        const btnPost = containerCreate.querySelector("#post");
-        btnPost.addEventListener("click", () => { 
-          createPost();
-        });
-        return containerCreate;
-      };
-    
+            </main>`;
+  console.log("Llega aquí");
+  containerPost.innerHTML = contentPost;
+
+  const btnPost = containerPost.querySelector("#post");
+  btnPost.addEventListener("click", () => {
+    createPost();
+  });
+  return containerPost;
+};
