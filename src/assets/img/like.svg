@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#2e71a7}
+        </style>
+    </defs>
+    <g id="like" transform="translate(-5 -5)">
+        <path id="Caminho_669" d="M5 5h22v22H5z" class="cls-1" data-name="Caminho 669"/>
+        <path id="Caminho_670" d="M6.2 23.41h3.56V13.08H6.2zm19.6-9.47a1.77 1.77 0 0 0-1.8-1.72h-5.6l.84-3.93v-.28a1.26 1.26 0 0 0-.39-.91l-.95-.9-5.86 5.67a1.63 1.63 0 0 0-.52 1.22v8.6a1.75 1.75 0 0 0 1.78 1.72h8a1.78 1.78 0 0 0 1.7-1.05l2.69-6.07a1.68 1.68 0 0 0 .12-.63z" class="cls-2" data-name="Caminho 670"/>
+    </g>
+</svg>

@@ -197,8 +197,12 @@ a {
 
 .imgAvatar {
   width: 70px;
+  height: 70px;
+  object-fit: cover;
   position: relative;
-  padding-right: 13px;
+  /* padding-right: 13px;
+  border-radius: 50%;
+  border: 1px solid var(--principalBlue); */
 }
 
 .slct-box {
@@ -309,10 +313,107 @@ a {
 
 .buttonsPost {
   display: flex;
+}
+
+.actionButtonRegularPost {
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+  max-width: 268px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+}
+
+.actionButtonRegularPost.littleButton {
+  max-width: 150px;
+}
+
+.actionButtonRegularPost.littleButton img {
+  position: relative;
+}
+
+.mainWallPost {
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 1px var(--babyBlue);
+  margin-top: 20px;
+}
+
+.authorName {
+  height: 10.5px;
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--principalBlue);
+}
+
+/* .authorDate {
+  font-family: Roboto;
+  font-size: 13px;
+  line-height: 1.31;
+  text-align: left;
+  color: var(--principalBlue);
+} */
+
+.postEventsDescrip {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: right;
+  color: var(--principalBlue);
+  cursor: pointer;
+}
+
+.postEventsEdit {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.31;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--principalBlue);
+}
+
+.txtStylePost {
+  outline: none;
+  padding: 20px 2px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  color: var(--principalBlue);
+  text-align: justify;
+}
+
+.txtAreaStylePost {
+  outline: none;
+  border: 1px solid var(--babyBlue);
+  padding: 2px 16px 16px 2px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  color: var(--principalBlue);
+}
+
+.buttonsEditPost {
+  display: flex;
 
 }
 
-.actionButtonRegular.littleButton {
-  max-width: 100px;
+.buttonsPost {
+  display: flex;
+  padding-bottom: 15px;
+  justify-content: space-between;
+}
 
+.categoryPost {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
