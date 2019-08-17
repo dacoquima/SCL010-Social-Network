@@ -31,32 +31,6 @@ export const loginGoogle = () => {
       console.log("RES:", res);
       let userName = user.displayName;
       console.log("Hola", user.displayName);
-<<<<<<< HEAD
-    // let db = firebase.firestore();
-    // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
-    db.collection('users').doc(user.uid).get().then(function(doc){
-     // si documento existe entramos en el muro
-     if (doc.exists) {
-      alert("Has iniciado sesión con exito");
-      window.location.hash = '#/feed';
-     }else{
-       //si no existe lo vamos a crear con uid de usuario
-      saveUserToDatabaseAfterLogin(user, userName);
-      
-      //  db.collection("users").doc(user.uid).set({
-      //   email:user.email,
-      //   firstName:userName.firstName,
-      //   lastName:userName.lastName,
-      //   photo:user.photoURL,
-      //   uid: user.uid
-    //})
-    alert("Has iniciado sesión con exito");
-    window.location.hash='#/post';
-    
-  }
-});
-})
-=======
       // let db = firebase.firestore();
       // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
       db.collection('users').doc(user.uid).get().then(function (doc) {
@@ -73,7 +47,6 @@ export const loginGoogle = () => {
         }
       });
     })
->>>>>>> e637e9ff1cca15f434b93445249555758eab346b
     .catch(err => {
       console.log("El error es", err);
     });
@@ -104,32 +77,6 @@ export const loginFacebook = () => {
     .then(res => {
       const user = res.user;
       console.log("RES:", res);
-<<<<<<< HEAD
-      let userName = splitGoogleDisplayName(user.displayName);
-      console.log("Hola", user.displayName);
-    // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
-    db.collection('users').doc(user.uid).get().then(function(doc){
-     // si documento existe entramos en el muro
-     if (doc.exists) {
-      alert("Has iniciado sesión con exito");
-      window.location.hash = '#/feed';
-     }else{
-       //si no existe lo vamos a crear con uid de usuario
-      saveUserToDatabaseAfterLogin2(user, userName);
-      //  db.collection("users").doc(user.uid).set({
-      //   email:user.email,
-      //   firstName:userName.firstName,
-      //   lastName:userName.lastName,
-      //   photo:user.photoURL,
-      //   uid: user.uid
-    //})
-    alert("Has iniciado sesión con exito");
-    window.location.hash='#/feed';
-  }
-});
-})
-
-=======
       let userName = user.displayName;
       console.log("Hola", user.displayName);
       // aqui queremos obtener documentos desde firestore de collecion users que tirnrn como numero uid de usuario corriente
@@ -147,7 +94,6 @@ export const loginFacebook = () => {
         }
       });
     })
->>>>>>> e637e9ff1cca15f434b93445249555758eab346b
     .catch(err => {
       console.log("El error es", err);
     });
@@ -157,22 +103,12 @@ export const loginFacebook = () => {
 const saveUserToDatabaseAfterLogin2 = (user, userName) => {
   //Convertir las informaciones de google en um objecto
   db.collection("users").doc(user.uid).set({
-<<<<<<< HEAD
-    email:user.email,
-    firstName:userName.firstName,
-    lastName:userName.lastName,
-    photo:user.photoURL,
-    uid: user.uid
-  })
-  console.log("uid:", user.uid, "email:", user.email, "firstName:", userName.firstName, "lastName:", userName.lastName);
-=======
     email: user.email,
     displayName: userName,
     photo: user.photoURL,
     uid: user.uid
   })
   console.log("uid:", user.uid, "email:", user.email);
->>>>>>> e637e9ff1cca15f434b93445249555758eab346b
 };
 
 const createAccountEmail = (userdata, secret) => {

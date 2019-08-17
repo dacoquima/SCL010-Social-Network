@@ -39,11 +39,7 @@ export const templatePost = () => {
        <option value="Tramites de visa">Tramites de visa</option>
        </select>
         </span>
-<<<<<<< HEAD
-          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
-=======
           <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="3" placeholder="¿Tienes algún dato?"></textarea>
->>>>>>> e637e9ff1cca15f434b93445249555758eab346b
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
             </main>`;
