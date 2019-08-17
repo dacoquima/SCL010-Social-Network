@@ -37,8 +37,7 @@ export const loginGoogle = () => {
           } else {
             //si no existe lo vamos a crear con uid de usuario
             saveUserToDatabaseAfterLogin(user, userName);
-            alert("Has iniciado sesión con exito");
-            window.location.hash = "#/post";
+            window.location.hash = "#/feed";
           }
         });
     })
@@ -149,7 +148,7 @@ export const loginWithEmail = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res => (location.href = "#/post"))
+    .then(res => (location.href = "#/feed"))
     .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -185,7 +184,6 @@ const getData = () => {
   let secret = {};
   userdata.displayName = document.querySelector("input[name=fullName]").value;
   userdata.email = document.querySelector("input[name=email]").value;
-  // userdata.creationData = new Date();Se usará para guardar la fecha de las publicaciones
   userdata.friends = [];
   secret.password1 = document.querySelector("input[name=password1]").value;
   secret.password2 = document.querySelector("input[name=password2]").value;

@@ -309,10 +309,18 @@ a {
 
 .buttonsPost {
   display: flex;
-
 }
 
 .actionButtonRegular.littleButton {
   max-width: 100px;
-
+}
+.profilePicture {
+  max-width: 113px;
+  border-radius: 60px;
+}
+.profileTop {
+  display: flex;
+}
+.profileButtons {
+  display: flex;
 }
