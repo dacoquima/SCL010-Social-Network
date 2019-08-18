@@ -37,12 +37,12 @@ export const loginGoogle = () => {
         // si documento existe entramos en el muro
         if (doc.exists) {
           alert("Has iniciado sesión con exito");
-          window.location.hash = '#/post';
+          window.location.hash = '#/feed';
         } else {
           //si no existe lo vamos a crear con uid de usuario
           saveUserToDatabaseAfterLogin(user, userName);
           alert("Has iniciado sesión con exito");
-          window.location.hash = '#/post';
+          window.location.hash = '#/feed';
 
         }
       });
@@ -150,7 +150,7 @@ export const loginWithEmail = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res => (location.href = "#/post"))
+    .then(res => (location.href = "#/feed"))
     .catch(function (error) {
       // Handle Errors here.
       var errorCode = error.code;

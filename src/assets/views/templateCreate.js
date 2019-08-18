@@ -1,7 +1,13 @@
-import { createAccount } from "./../js/auth.js";
-import { loginGoogle, loginFacebook } from "./../js/auth.js";
-
+import {
+  createAccount
+} from "./../js/auth.js";
+import {
+  loginGoogle,
+  loginFacebook
+} from "./../js/auth.js";
+const containerFeedPost = document.getElementById("root2");
 export const templateCreate = () => {
+  containerFeedPost.innerHTML = "";
   const containerCreate = document.createElement("div");
   containerCreate.className = "containerCreate";
   const contentCreate = `<header>

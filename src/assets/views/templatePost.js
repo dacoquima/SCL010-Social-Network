@@ -2,10 +2,14 @@
 import {
   createPost
 } from "../js/post.js";
+import {
+  observer
+} from "./../js/auth.js";
 
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 const containerFeedPost = document.getElementById("root2");
 export const templatePost = () => {
+  observer();
   containerFeedPost.innerHTML = "";
   let actualUser = firebase.auth().currentUser;
   console.log(actualUser);
@@ -15,7 +19,7 @@ export const templatePost = () => {
 
   const contentPost = `
     <header class="secondHeader">
-      <a id="feedIcon" class="iconInputBack" href="#/feed"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
+      <a id="feedIcon" class="iconInputBack" onclick="window.history.back()"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
       <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
     </header>
     <main id = "templatePost" class="mainLoginCreate">
@@ -23,13 +27,16 @@ export const templatePost = () => {
         <h1 class="secondarytextPost">Nueva publicación</h1>
       </div>
       <div class = "perfil">
-        <img src="${actualUser.photoURL}" class="imgAvatar" alt="avatar user"/>
-        <h2>${actualUser.displayName}</h2>
+      <div class = "avatarPostTemp">
+        <img src="${actualUser.photoURL}" class="avatarPostTemp img" alt="avatar user"/>
+        </div>
+        <h2 class="avatarName">${actualUser.displayName}</h2>
         </div>
         <form class="formPost"> 
         <span class="iconInput1"> 
-       <img src="./assets/img/categoryIcon.svg" alt="icono categoria">
+       <img src="./assets/img/categoryIconslct.svg" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
+<<<<<<< HEAD
        <option value="Categoria">Categorias</option> 
        <option value="Alojamiento" class="Alojamiento">Alojamiento</option>
        <option value="Arriendo" class="Arriendo">Arriendo</option>
@@ -37,9 +44,18 @@ export const templatePost = () => {
        <option value="Gastronomia" class="Gastronomia">Gastronomia</option>
        <option value="Trabajo" class="Trabajo">Trabajo</option>
        <option value="Tramites" class="Tramites">Tramites de visa</option>
+=======
+       <option disabled selected value>Categorias</option> 
+       <option value="Alojamiento">Alojamiento</option>
+       <option value="Arriendo">Arriendo</option>
+       <option value="Cultura">Cultura</option>
+       <option value="Gastronomia">Gastronomia</option>
+       <option value="Trabajo">Trabajo</option>
+       <option value="Tramites de visa">Tramites de visa</option>
+>>>>>>> cc231d16d3d9899e09318cb5908c07db39287baf
        </select>
         </span>
-          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="3" placeholder="¿Tienes algún dato?"></textarea>
+          <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
             </main>`;
