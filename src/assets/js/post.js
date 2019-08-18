@@ -41,6 +41,7 @@ export const readPost = () => {
   let db = firebase.firestore();
   db.collection("posts").onSnapshot((querySnapshot) => {
     containerFeedPost.innerHTML = "";
+
     querySnapshot.forEach((doc) => {
       containerFeedPost.innerHTML +=
         `<main id = "templateWall" class="mainLoginCreate">

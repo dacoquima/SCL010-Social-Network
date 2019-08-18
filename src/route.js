@@ -25,6 +25,9 @@ import {
 import {
   templateMenu
 } from "./assets/views/templateMenu.js";
+import {
+  templateCategories
+} from "./assets/views/templateCategories.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -52,6 +55,12 @@ const changeRouter = hash => {
     return showTemplate(hash);
   }
   if (hash === "#/profile") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/categories") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/category") {
     return showTemplate(hash);
   }
 };
@@ -91,6 +100,14 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateProfile());
       containerRoot.appendChild(templateMenu());
       break;
+    case "categories":
+      containerRoot.appendChild(templateCategories());
+      containerRoot.appendChild(templateMenu());
+      break;
+    case "category":
+          containerRoot.appendChild(templateCategory());
+          containerRoot.appendChild(templateMenu());
+          break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;
   }
