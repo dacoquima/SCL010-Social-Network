@@ -8,8 +8,8 @@ export const templateProfile = () => {
   containerProfile.className = "containerProfile";
   let user = window.location.hash;
   user = user.split("/")[2];
-  console.log(user);
   let userInfo = profile(user);
+  let actualUser = firebase.auth().currentUser;
   userInfo.then(userData => {
     const contentProfile = `
     <header class="secondHeader">
@@ -29,6 +29,7 @@ export const templateProfile = () => {
       <div class="profileButtons">
         <button id="editProfile" class="actionButtonRegular littleButton">Editar perfil</button>
         <button id="logOut" class="actionButtonRegular littleButton">Cerrar sesión</button>
+        <button id="addToContacts" class="actionButtonRegular">Agregar a contactos</button>
       </div>
       <div class="profileDetails">
         <div class="profilePostDetails">
@@ -45,8 +46,16 @@ export const templateProfile = () => {
 
     </main>
     `;
-
     containerProfile.innerHTML = contentProfile;
+    if (actualUser.uid === userData.uid) {
+      document.getElementById("addToContacts").style.display = "none";
+      document.getElementById("editProfile").style.display = "flex";
+      document.getElementById("logOut").style.display = "flex";
+    } else {
+      document.getElementById("addToContacts").style.display = "flex";
+      document.getElementById("editProfile").style.display = "none";
+      document.getElementById("logOut").style.display = "none";
+    }
 
     const goToEditProfile = containerProfile.querySelector("#editProfile");
     goToEditProfile.addEventListener("click", () => {
