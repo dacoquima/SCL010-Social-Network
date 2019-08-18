@@ -125,7 +125,7 @@ const createAccountEmail = (userdata, secret) => {
       firebase.auth().currentUser.updateProfile({
         displayName: userdata.displayName
       });
-      templateSuccessCreate();
+      location.href = "#/successCreate";
     })
     .catch(err => {
       console.log("El error es", err);
@@ -151,8 +151,16 @@ export const loginWithEmail = (email, password) => {
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(res => (location.href = "#/feed"))
-    .catch(function(error) {
+    .then(res => {
+      console.log(res);
+      if (res.user.emailVerified) {
+        location.href = "#/feed";
+      } else {
+        alert("Debes verificar tu correo electrónico antes de logearte");
+        location.href = "#/login";
+      }
+    })
+    .catch(error => {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
