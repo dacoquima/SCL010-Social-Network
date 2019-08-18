@@ -2,48 +2,29 @@ import {
   observer
 } from './auth.js'
 
-
 const containerFeedPost = document.getElementById("root2");
-//import { templateFeed } from "./assets/views/templateFeed.js";
-
-//guardamos firestore en variable
-let db = firebase.firestore();
 let date = new Date();
 
 // funcion para crear posts
 export const createPost = () => {
+  let db = firebase.firestore();
   observer();
-  console.log("createPost A");
-  //guardamos fecha
-
-  console.log("createPost B");
-  //user = observer();
-  //console.log("USER:", user);
   //guardamos os valores elijidos por el usuario
   let postCategory = document.querySelector("select[name=slctCategory]").value;
   let postMesage = document.querySelector("textarea[name=postTxt]").value;
-  console.log("category:", postCategory, "Mesage:", postMesage);
   //usamos esta funcion para obtener uid de usuario corriente
   firebase.auth().onAuthStateChanged(user => {
-    console.log(user);
-    //console.log(doc._document.proto.fields);
-
     if (validatePost(postMesage)) {
       db.collection('posts').add({
-          //db.collection("users").doc(user.uid).set({
           uid: user.uid,
-          //email: user.email,
-          //authorName: doc.data().user,
           authorName: user.displayName,
           photo: user.photoURL,
           date: date,
           category: postCategory,
           message: postMesage,
           like: []
-
         })
         .then(function (doc) {
-          console.log("Document written with ID: ", doc.id);
           window.location.hash = '#/feed';
           readPost();
         })
@@ -54,19 +35,13 @@ export const createPost = () => {
       alert("Ingrese una información valida para publicar");
     }
   })
-  //})
 };
 
-
 export const readPost = () => {
-
+  let db = firebase.firestore();
   db.collection("posts").onSnapshot((querySnapshot) => {
     containerFeedPost.innerHTML = "";
-
     querySnapshot.forEach((doc) => {
-      // let postDate = new Date(doc.data().date);
-      // let toDate = toDate(postDate);
-      console.log(`${doc.id} => ${doc.data().message}`);
       containerFeedPost.innerHTML +=
         `<main id = "templateWall" class="mainLoginCreate">
         <div class = "mainWallPost">
@@ -130,6 +105,7 @@ export const likeEvent = (doc) => {
       document.getElementById('likePost' + doc.id).style.color = "#ff637d";
     })
   } else {
+    //like
     const btnLikePost = document.getElementById('likePost' + doc.id);
     btnLikePost.addEventListener("click", () => {
       likePost(doc.id, doc.data().like);
@@ -141,11 +117,11 @@ export const likeEvent = (doc) => {
 
 // BORRAR POSTS
 export const deletePost = (id) => {
+  let db = firebase.firestore();
   if (confirm("¿Seguro que quieres borrar tu publicación?")) {
     db.collection("posts").doc(id).delete().then(function () {
       containerFeedPost.innerHTML = "";
       readPost();
-      console.log("Document successfully deleted!");
     }).catch(function (error) {
       console.error("Error removing document: ", error);
     })
@@ -154,8 +130,8 @@ export const deletePost = (id) => {
 
 // EDITAR POSTS
 export const editPost = (id) => {
+  let db = firebase.firestore();
   db.collection("posts").doc(id).get().then(doc => {
-
     //obtener el mensaje del post
     document.getElementById(`editTextPost${doc.id}`).innerHTML = doc.data().message;
     //aparece textArea para cambiar texto
@@ -182,7 +158,6 @@ export const editPost = (id) => {
           document.getElementById(`deletePost${doc.id}`).style.display = "flex";
           document.getElementById(`editPost${doc.id}`).style.display = "flex";
           document.getElementById(`savePost${doc.id}`).style.display = "none";
-          console.log("Se actualizó el post")
         })
         .catch((error) => {
           console.error(error);
@@ -192,10 +167,9 @@ export const editPost = (id) => {
 };
 
 export const likePost = (id, like) => {
+  let db = firebase.firestore();
   firebase.auth().onAuthStateChanged(user => {
-    console.log(user);
     like.push(user.uid)
-    console.log(like)
     let docRef = db.collection('posts').doc(id);
     return docRef.update({
       like: like
@@ -206,15 +180,14 @@ export const likePost = (id, like) => {
 }
 
 export const unlikePost = (id, like) => {
+  let db = firebase.firestore();
   firebase.auth().onAuthStateChanged(user => {
     let idPosition = like.indexOf(user.uid);
     like.splice(idPosition, 1);
     let docRef = db.collection('posts').doc(id);
     return docRef.update({
       like: like
-    }).then((e) => {
-
-    })
+    }).then((e) => {})
   });
 }
 
