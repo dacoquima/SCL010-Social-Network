@@ -5,7 +5,6 @@ import {
   readPost
 } from "../js/post.js";
 
-
 //caro esta creando template del feed
 export const templateFeed = () => {
   observer();
