@@ -256,11 +256,11 @@ a {
   display: flex;
   align-items: center;
   position: relative;
+  margin-bottom: 20px;
+  z-index: 2;
+  position: fixed;
 }
 
-/* .secondHeader img{
-  position: absolute;
-} */
 .imgSecondHeader {
   width: 100%;
 }
@@ -270,6 +270,7 @@ a {
 }
 
 .menuFooter {
+  z-index: 2;
   position: fixed;
   bottom: 0;
   background: var(--lightGrey);
@@ -277,10 +278,6 @@ a {
   padding: 10px 0;
   display: flex;
   justify-content: space-evenly;
-}
-
-#root {
-  margin-bottom: 60px;
 }
 
 .avatarPost {
@@ -376,6 +373,7 @@ a {
 
 .actionButtonRegularPost.littleButton img {
   position: relative;
+  padding-right: 10px;
 }
 
 .mainWallPost {
@@ -383,13 +381,12 @@ a {
   flex-direction: column;
   border-bottom: solid 1px var(--babyBlue);
   border-width: 100%;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .authorName {
   font-weight: bold;
   padding-left: 15px;
-  font-family: Roboto;
   font-size: 16px;
   line-height: 1.31;
   letter-spacing: normal;
@@ -397,16 +394,7 @@ a {
   color: var(--principalBlue);
 }
 
-/* .authorDate {
-  font-family: Roboto;
-  font-size: 13px;
-  line-height: 1.31;
-  text-align: left;
-  color: var(--principalBlue);
-} */
-
 .postEventsDescrip {
-  font-family: Roboto;
   font-size: 15px;
   font-weight: normal;
   line-height: 1.31;
@@ -417,7 +405,6 @@ a {
 }
 
 .postEventsEdit {
-  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   line-height: 1.31;
@@ -430,7 +417,6 @@ a {
   outline: none;
   padding: 20px 2px;
   position: relative;
-  font-family: "Roboto", sans-serif;
   color: var(--principalBlue);
   text-align: justify;
 }

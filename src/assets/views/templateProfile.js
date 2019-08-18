@@ -16,7 +16,7 @@ export const templateProfile = () => {
       <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
       <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
     </header>
-    <main id = "templateProfile" clasS=mainLoginCreate">
+    <main id = "templateProfile" class="mainLoginCreate">
       <div class="profileTop" >
         <img src="${
           userData.photo
@@ -42,7 +42,7 @@ export const templateProfile = () => {
           <p>Contactos</p>
         </div>
       </div>
-      <hr class="separationLine"/>
+      <hr class="separationLine">
 
 
     </main>
