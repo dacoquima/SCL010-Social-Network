@@ -1,33 +1,13 @@
-import {
-  templateLogin
-} from "./assets/views/templateLogin.js";
-import {
-  templateCreate
-} from "./assets/views/templateCreate.js";
-import {
-  templateFeed
-} from "./assets/views/templateFeed.js";
-import {
-  templateResetPassword
-} from "./assets/views/templateResetPassword.js";
-import {
-  templateSuccessCreate
-} from "./assets/views/templateSuccessCreate.js";
-import {
-  templateHome
-} from "./assets/views/templateHome.js";
-import {
-  templatePost
-} from "./assets/views/templatePost.js";
-import {
-  templateProfile
-} from "./assets/views/templateProfile.js";
-import {
-  templateMenu
-} from "./assets/views/templateMenu.js";
-import {
-  templateCategories
-} from "./assets/views/templateCategories.js";
+import { templateLogin } from "./assets/views/templateLogin.js";
+import { templateCreate } from "./assets/views/templateCreate.js";
+import { templateFeed } from "./assets/views/templateFeed.js";
+import { templateResetPassword } from "./assets/views/templateResetPassword.js";
+import { templateSuccessCreate } from "./assets/views/templateSuccessCreate.js";
+import { templateHome } from "./assets/views/templateHome.js";
+import { templatePost } from "./assets/views/templatePost.js";
+import { templateProfile } from "./assets/views/templateProfile.js";
+import { templateMenu } from "./assets/views/templateMenu.js";
+import { templateCategories } from "./assets/views/templateCategories.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -54,8 +34,9 @@ const changeRouter = hash => {
   if (hash === "#/editPost") {
     return showTemplate(hash);
   }
-  if (hash === "#/profile") {
-    return showTemplate(hash);
+  if (hash.includes("#/profile")) {
+    let template = "#/profile";
+    return showTemplate(template);
   }
   if (hash === "#/categories") {
     return showTemplate(hash);
@@ -69,6 +50,8 @@ const showTemplate = hash => {
   const router = hash.substring(2);
   const containerRoot = document.getElementById("root");
   containerRoot.innerHTML = "";
+  const containerRoot2 = document.getElementById("root2");
+  containerRoot2.innerHTML = "";
   switch (router) {
     case "home":
       containerRoot.appendChild(templateHome());
@@ -105,9 +88,9 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateMenu());
       break;
     case "category":
-          containerRoot.appendChild(templateCategory());
-          containerRoot.appendChild(templateMenu());
-          break;
+      containerRoot.appendChild(templateCategory());
+      containerRoot.appendChild(templateMenu());
+      break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;
   }
