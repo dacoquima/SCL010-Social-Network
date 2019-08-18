@@ -121,6 +121,9 @@ const createAccountEmail = (userdata, secret) => {
       userdata.uid = user.uid;
       createAccountInDb(userdata);
       verifyEmail();
+      firebase.auth().currentUser.updateProfile({
+        displayName: userdata.displayName
+      });
       templateSuccessCreate();
     })
     .catch(err => {
@@ -130,12 +133,11 @@ const createAccountEmail = (userdata, secret) => {
 
 export const createAccount = () => {
   let { secret, userdata } = getData();
-
   if (
     secret.password1 &&
     secret.password2 &&
     userdata.email &&
-    userdata.fullName &&
+    userdata.displayName &&
     secret.password1 === secret.password2
   ) {
     createAccountEmail(userdata, secret);
