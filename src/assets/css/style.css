@@ -387,7 +387,7 @@ a {
   color: var(--principalBlue);
 } */
 
-.containerCategories{
+.containerCategories {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -419,63 +419,64 @@ a {
 }
 
 .btnCategories p {
-margin-top: 10px;
-color: #2E71A7;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-font-weight: bold;
-padding: 10px;
-.postEventsDescrip {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
-  text-align: right;
-  color: var(--principalBlue);
-  cursor: pointer;
-}
+  margin-top: 10px;
+  color: #2E71A7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  padding: 10px;
 
-.postEventsEdit {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 1.31;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--principalBlue);
-}
+  .postEventsDescrip {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--principalBlue);
+    cursor: pointer;
+  }
 
-.txtStylePost {
-  outline: none;
-  padding: 20px 2px;
-  position: relative;
-  font-family: "Roboto", sans-serif;
-  color: var(--principalBlue);
-  text-align: justify;
-}
+  .postEventsEdit {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--principalBlue);
+  }
 
-.txtAreaStylePost {
-  outline: none;
-  border: 1px solid var(--babyBlue);
-  padding: 2px 16px 16px 2px;
-  position: relative;
-  font-family: "Roboto", sans-serif;
-  color: var(--principalBlue);
-}
+  .txtStylePost {
+    outline: none;
+    padding: 20px 2px;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    color: var(--principalBlue);
+    text-align: justify;
+  }
 
-.buttonsEditPost {
-  display: flex;
+  .txtAreaStylePost {
+    outline: none;
+    border: 1px solid var(--babyBlue);
+    padding: 2px 16px 16px 2px;
+    position: relative;
+    font-family: "Roboto", sans-serif;
+    color: var(--principalBlue);
+  }
 
-}
+  .buttonsEditPost {
+    display: flex;
 
-.buttonsPost {
-  display: flex;
-  padding-bottom: 15px;
-  justify-content: space-between;
-}
+  }
 
-.categoryPost {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .buttonsPost {
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: space-between;
+  }
+
+  .categoryPost {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
