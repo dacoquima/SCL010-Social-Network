@@ -7,6 +7,7 @@ import { templateHome } from "./assets/views/templateHome.js";
 import { templatePost } from "./assets/views/templatePost.js";
 import { templateProfile } from "./assets/views/templateProfile.js";
 import { templateMenu } from "./assets/views/templateMenu.js";
+import { templateCategories } from "./assets/views/templateCategories.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
@@ -36,6 +37,12 @@ const changeRouter = hash => {
   if (hash.includes("#/profile")) {
     let template = "#/profile";
     return showTemplate(template);
+  }
+  if (hash === "#/categories") {
+    return showTemplate(hash);
+  }
+  if (hash === "#/category") {
+    return showTemplate(hash);
   }
 };
 
@@ -74,6 +81,14 @@ const showTemplate = hash => {
       break;
     case "profile":
       containerRoot.appendChild(templateProfile());
+      containerRoot.appendChild(templateMenu());
+      break;
+    case "categories":
+      containerRoot.appendChild(templateCategories());
+      containerRoot.appendChild(templateMenu());
+      break;
+    case "category":
+      containerRoot.appendChild(templateCategory());
       containerRoot.appendChild(templateMenu());
       break;
     default:

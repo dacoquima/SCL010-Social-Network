@@ -8,8 +8,6 @@ export const templatePost = () => {
   observer();
   containerFeedPost.innerHTML = "";
   let actualUser = firebase.auth().currentUser;
-  console.log(actualUser);
-
   const containerPost = document.createElement("div");
   containerPost.className = "containerPost";
 
@@ -47,7 +45,6 @@ export const templatePost = () => {
           </form> 
             <button id='post' class="actionButtonRegular">Publicar</button>
             </main>`;
-  console.log("Llega aquí");
   containerPost.innerHTML = contentPost;
 
   const btnPost = containerPost.querySelector("#post");

@@ -307,10 +307,6 @@ a {
   color: var(--babyBlue);
 }
 
-.buttonsPost {
-  display: flex;
-}
-
 .actionButtonRegular.littleButton {
   max-width: 100px;
 }
@@ -435,10 +431,33 @@ a {
   display: flex;
 }
 
-.buttonsPost {
+.containerCategories {
   display: flex;
-  padding-bottom: 15px;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoriesImg {
+  width: 100px;
+  height: 100px;
+}
+
+.btnCategories {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 50px;
+  border-radius: 10px;
+  width: 160px;
+  background-color: #f1f1f1;
+  box-shadow: 5px 5px 15px 0px #c0bfbf;
+}
+
+.btnCategories a {
+  padding: 0px;
+  margin: 0px;
 }
 
 .categoryPost {
@@ -449,4 +468,18 @@ a {
 
 .containerFeed {
   padding-bottom: 100px;
+}
+.btnCategories p {
+  margin-top: 10px;
+  color: #2e71a7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.buttonsPost {
+  display: flex;
+  padding-bottom: 15px;
+  justify-content: space-between;
 }
