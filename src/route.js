@@ -60,7 +60,7 @@ const changeRouter = hash => {
   if (hash === "#/categories") {
     return showTemplate(hash);
   }
-  if (hash === "#/prueba") {
+  if (hash === "#/category") {
     return showTemplate(hash);
   }
 };
@@ -104,6 +104,10 @@ const showTemplate = hash => {
       containerRoot.appendChild(templateCategories());
       containerRoot.appendChild(templateMenu());
       break;
+    case "category":
+          containerRoot.appendChild(templateCategory());
+          containerRoot.appendChild(templateMenu());
+          break;
     default:
       containerRoot.innerHTML = `<p>Error 404</p>`;
   }
