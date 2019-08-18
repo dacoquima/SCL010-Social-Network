@@ -72,3 +72,38 @@ export const postProfile = uid => {
     return containerProfilePost;
   });
 };
+
+export const addToContacts = id => {
+  firebase.auth().onAuthStateChanged(user => {
+    let docRef = db.collection("users").doc(user.uid);
+    docRef.get().then(e => {
+      let contacts = e.data().contacts;
+      contacts.push(id);
+      docRef
+        .update({
+          contacts: contacts
+        })
+        .then(e => {
+          console.log(e);
+        });
+    });
+  });
+};
+
+export const removeFromContacts = id => {
+  firebase.auth().onAuthStateChanged(user => {
+    let docRef = db.collection("users").doc(user.uid);
+    docRef.get().then(res => {
+      let contacts = res.data().contacts;
+      let idPosition = contacts.indexOf(id);
+      contacts.splice(idPosition, 1);
+      docRef
+        .update({
+          contacts: contacts
+        })
+        .then(e => {
+          console.log(e);
+        });
+    });
+  });
+};

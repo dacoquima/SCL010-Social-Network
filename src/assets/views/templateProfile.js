@@ -1,5 +1,5 @@
 import { signOutAccount } from "./../js/auth.js";
-import { profile } from "./../js/profile.js";
+import { profile, addToContacts, removeFromContacts } from "./../js/profile.js";
 const containerFeedPost = document.getElementById("root2");
 
 export const templateProfile = () => {
@@ -30,6 +30,7 @@ export const templateProfile = () => {
         <button id="editProfile" class="actionButtonRegular littleButton">Editar perfil</button>
         <button id="logOut" class="actionButtonRegular littleButton">Cerrar sesión</button>
         <button id="addToContacts" class="actionButtonRegular">Agregar a contactos</button>
+        <button id="removeFromContacts" class="actionButtonRegular">Eliminar de contactos</button>
       </div>
       <div class="profileDetails">
         <div class="profilePostDetails">
@@ -47,24 +48,34 @@ export const templateProfile = () => {
     </main>
     `;
     containerProfile.innerHTML = contentProfile;
+
     if (actualUser.uid === userData.uid) {
       document.getElementById("addToContacts").style.display = "none";
+      document.getElementById("removeFromContacts").style.display = "none";
       document.getElementById("editProfile").style.display = "flex";
       document.getElementById("logOut").style.display = "flex";
+      const goToLogin = containerProfile.querySelector("#logOut");
+      goToLogin.addEventListener("click", () => {
+        signOutAccount();
+      });
+      const goToEditProfile = containerProfile.querySelector("#editProfile");
+      goToEditProfile.addEventListener("click", () => {
+        location.href = "#/editProfile";
+      });
     } else {
       document.getElementById("addToContacts").style.display = "flex";
       document.getElementById("editProfile").style.display = "none";
       document.getElementById("logOut").style.display = "none";
+      const follow = containerProfile.querySelector("#addToContacts");
+      follow.addEventListener("click", () => {
+        addToContacts(userData.uid);
+      });
+      const unfollow = containerProfile.querySelector("#removeFromContacts");
+      unfollow.addEventListener("click", () => {
+        removeFromContacts(userData.uid);
+      });
     }
-
-    const goToEditProfile = containerProfile.querySelector("#editProfile");
-    goToEditProfile.addEventListener("click", () => {
-      location.href = "#/editProfile";
-    });
-    const goToLogin = containerProfile.querySelector("#logOut");
-    goToLogin.addEventListener("click", () => {
-      signOutAccount();
-    });
   });
+
   return containerProfile;
 };

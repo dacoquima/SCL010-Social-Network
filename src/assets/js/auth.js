@@ -33,7 +33,7 @@ export const loginGoogle = () => {
           // si documento existe entramos en el muro
           if (doc.exists) {
             alert("Has iniciado sesión con exito");
-            window.location.hash = "#/post";
+            window.location.hash = "#/feed";
           } else {
             //si no existe lo vamos a crear con uid de usuario
             saveUserToDatabaseAfterLogin(user, userName);
@@ -57,7 +57,7 @@ export const saveUserToDatabaseAfterLogin = (user, userName) => {
       displayName: userName,
       photo: user.photoURL,
       uid: user.uid,
-      date: date
+      contacts: []
     });
   console.log("uid:", user.uid, "email:", user.email);
 };
@@ -107,7 +107,8 @@ const saveUserToDatabaseAfterLogin2 = (user, userName) => {
       email: user.email,
       displayName: userName,
       photo: user.photoURL,
-      uid: user.uid
+      uid: user.uid,
+      contacts: []
     });
   console.log("uid:", user.uid, "email:", user.email);
 };
@@ -186,7 +187,7 @@ const getData = () => {
   let secret = {};
   userdata.displayName = document.querySelector("input[name=fullName]").value;
   userdata.email = document.querySelector("input[name=email]").value;
-  userdata.friends = [];
+  userdata.contacts = [];
   secret.password1 = document.querySelector("input[name=password1]").value;
   secret.password2 = document.querySelector("input[name=password2]").value;
   return {

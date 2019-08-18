@@ -43,6 +43,8 @@ const showTemplate = hash => {
   const router = hash.substring(2);
   const containerRoot = document.getElementById("root");
   containerRoot.innerHTML = "";
+  const containerRoot2 = document.getElementById("root2");
+  containerRoot2.innerHTML = "";
   switch (router) {
     case "home":
       containerRoot.appendChild(templateHome());
