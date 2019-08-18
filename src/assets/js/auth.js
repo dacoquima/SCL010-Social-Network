@@ -37,6 +37,7 @@ export const loginGoogle = () => {
           } else {
             //si no existe lo vamos a crear con uid de usuario
             saveUserToDatabaseAfterLogin(user, userName);
+            alert("Has iniciado sesión con exito");
             window.location.hash = "#/feed";
           }
         });

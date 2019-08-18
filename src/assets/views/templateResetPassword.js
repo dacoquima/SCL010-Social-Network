@@ -1,6 +1,10 @@
-import { rememberPassword } from "./../js/auth.js";
+import {
+  rememberPassword
+} from "./../js/auth.js";
 
+const containerFeedPost = document.getElementById("root2");
 export const templateResetPassword = () => {
+  containerFeedPost.innerHTML = "";
   const containerResetPassword = document.createElement("div");
   containerResetPassword.className = "containerReset";
   const contentResetPass = `<header>

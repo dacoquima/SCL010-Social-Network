@@ -5,13 +5,14 @@ const containerFeedPost = document.getElementById("root2");
 
 //guardamos firestore en variable
 let db = firebase.firestore();
+let date = new Date();
 
 // funcion para crear posts
 export const createPost = () => {
   observer();
   console.log("createPost A");
   //guardamos fecha
-  let date = new Date();
+
   console.log("createPost B");
   //user = observer();
   //console.log("USER:", user);
@@ -22,31 +23,33 @@ export const createPost = () => {
   //usamos esta funcion para obtener uid de usuario corriente
   firebase.auth().onAuthStateChanged(user => {
     console.log(user);
-    //obtenemos desde collecion users datos de usuario corriente con uid
-    //db.collection('users').doc(user.uid).get().then(doc => {
-    //agrega un ID automatico
     //console.log(doc._document.proto.fields);
-    db.collection("posts")
-      .add({
-        //db.collection("users").doc(user.uid).set({
-        uid: user.uid,
-        username: user.email.split("@")[0],
-        //authorName: doc.data().user,
-        authorName: user.displayName,
-        photo: user.photoURL,
-        date: date,
-        category: postCategory,
-        message: postMesage,
-        like: []
-      })
-      .then(function(doc) {
-        console.log("Document written with ID: ", doc.id);
-        window.location.hash = "#/feed";
-        readPost();
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
+
+    if (validatePost(postMesage)) {
+      db.collection("posts")
+        .add({
+          //db.collection("users").doc(user.uid).set({
+          uid: user.uid,
+          //email: user.email,
+          //authorName: doc.data().user,
+          authorName: user.displayName,
+          photo: user.photoURL,
+          date: date,
+          category: postCategory,
+          message: postMesage,
+          like: []
+        })
+        .then(function(doc) {
+          console.log("Document written with ID: ", doc.id);
+          window.location.hash = "#/feed";
+          readPost();
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
+    } else {
+      alert("Ingrese una información valida para publicar");
+    }
   });
   //})
 };
@@ -54,41 +57,54 @@ export const createPost = () => {
 export const readPost = () => {
   db.collection("posts").onSnapshot(querySnapshot => {
     containerFeedPost.innerHTML = "";
+
     querySnapshot.forEach(doc => {
+      // let postDate = new Date(doc.data().date);
+      // let toDate = toDate(postDate);
       console.log(`${doc.id} => ${doc.data().message}`);
       containerFeedPost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
+        <div class = "mainWallPost">
           <div class = "perfil">
-            <img src=${
-              doc.data().photo
-            } class="imgAvatarPost" alt="avatar user"/>
-            <h2><a href="#/profile/${doc.data().username}">${
-        doc.data().authorName
-      }</a></h2>
-          </div>
-          <h2 id= "categoryPost${doc.id}">${doc.data().category}</h2>
-          <p id = "messagePost${
-            doc.id
-          }" name="postTxtWallFinal" class="txtAreaStylePost">${
+          <div class = "avatarPost">
+            <img src=${doc.data().photo} alt="avatar user"/>
+            </div>
+            <div>
+            <h2 class="authorName">${doc.data().authorName}</h2>
+              </div>
+            </div>
+            <div class="categoryPost">
+            <h2 id= "categoryPost${doc.id}">${doc.data().category}</h2>
+            <div class="buttonsEditPost">
+              <button class="actionButtonRegularPost littleButton" id='editPost${
+                doc.id
+              }'><img src="./assets/img/edit.svg" alt="editar post"><p class="postEventsEdit">Editar</p></button>
+              <button class="actionButtonRegularPost littleButton" id='deletePost${
+                doc.id
+              }'><img src="./assets/img/close.svg" alt="eliminar post"><p class="postEventsEdit">Eliminar</p></button>
+              <button class="actionButtonRegularPost littleButton" id='savePost${
+                doc.id
+              }' style="display:none"><img src="./assets/img/save.svg" alt="guardar post"><p class="postEventsEdit">Guardar</p></button>
+              </div>
+              </div>
+            <div class="buttonsPost">
+              <p id = "messagePost${
+                doc.id
+              }" name="postTxtWallFinal" class="txtStylePost">${
         doc.data().message
       }</p>
-          <textarea id = "editTextPost${
-            doc.id
-          }" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
-          <div class="buttonsPost">
-            <button class="actionButtonRegular littleButton" id='deletePost${
-              doc.id
-            }'>Borrar</button>
-            <button class="actionButtonRegular littleButton" id='editPost${
-              doc.id
-            }'>Editar</button>
-            <button class="actionButtonRegular littleButton" id='savePost${
-              doc.id
-            }' style="display:none">Guardar</button>
-            <button class="actionButtonRegular littleButton" id='likePost${
-              doc.id
-            }'>Like + </button>
-          </div>
-          <p>${doc.data().like.length} likes</p>
+              <textarea id = "editTextPost${
+                doc.id
+              }" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
+            </div>
+              <div class="buttonsPost">     
+              <button class="actionButtonRegularPost littleButton" id='likePost${
+                doc.id
+              }'><img src="./assets/img/unlike.svg" alt="like post"><p class="postEventsDescrip">${
+        doc.data().like.length
+      } Me gusta</p></button>
+              <button class="actionButtonRegularPost littleButton" id='ComentPost'><img src="./assets/img/coment.svg" alt="coment post"><p class="postEventsDescrip">Comentarios</p></button>
+            </div>
+            </div>
         </main>`;
     });
     querySnapshot.forEach(doc => {
@@ -121,11 +137,13 @@ export const likeEvent = doc => {
     const btnLikePost = document.getElementById("likePost" + doc.id);
     btnLikePost.addEventListener("click", () => {
       unlikePost(doc.id, doc.data().like);
+      document.getElementById("likePost" + doc.id).style.color = "#ff637d";
     });
   } else {
     const btnLikePost = document.getElementById("likePost" + doc.id);
     btnLikePost.addEventListener("click", () => {
       likePost(doc.id, doc.data().like);
+      document.getElementById("likePost" + doc.id).style.color = "#ffffff";
     });
   }
 };
@@ -227,4 +245,13 @@ export const unlikePost = (id, like) => {
         console.log(e);
       });
   });
+};
+
+//Valida si el textArea del post esta vacio
+export const validatePost = postMesage => {
+  if (postMesage === "" || postMesage.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
 };
