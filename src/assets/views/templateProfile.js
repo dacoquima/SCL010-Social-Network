@@ -22,9 +22,9 @@ export const templateProfile = () => {
           userData.photo
         }" class="profilePicture" alt="foto de perfil usuario"/>
         <h2 id="profileName">${userData.displayName}</h2>
-        <p id="profileProfession"></p>
-        <p id="profileNacionality"></p>
-        <p id="profileBio"></p>
+        <p id="profileProfession">${userData.Profession}</p>
+        <p id="profileNacionality">${userData.Nacionality}</p>
+        <p id="profileBio">${userData.bio}</p>
       </div>
       <div class="profileButtons">
         <button id="editProfile" class="actionButtonRegular littleButton">Editar perfil</button>
@@ -40,7 +40,9 @@ export const templateProfile = () => {
           <p>Contactos</p>
         </div>
       </div>
-      <hr/>
+      <hr class="separationLine"/>
+
+
     </main>
     `;
 

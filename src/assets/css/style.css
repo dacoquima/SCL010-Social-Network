@@ -324,3 +324,7 @@ a {
 .profileButtons {
   display: flex;
 }
+.separationLine {
+  background-color: var(--principalBlue);
+  height: 1px;
+}
