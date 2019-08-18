@@ -28,6 +28,9 @@ import {
 import {
   templateCategories
 } from "./assets/views/templateCategories.js";
+import {
+  templateCategory
+} from "./assets/views/templateCategory.js";
 
 const changeRouter = hash => {
   if (hash === "#/home") {
