@@ -1,15 +1,7 @@
-var db = firebase.firestore();
-
 export const connect = () => {
-  console.log("Connecting database");
-
   var defaultDatabase = firebase.database();
-
   let refToData = defaultDatabase.ref();
-
-  refToData.once("value", snapshot => {
-    console.log(snapshot.val());
-  });
+  refToData.once("value", snapshot => {});
 };
 
 export const createAccountInDb = data => {
@@ -17,7 +9,7 @@ export const createAccountInDb = data => {
   var id = db.collection("users").doc(data.uid);
   id.set(data)
     .then(() => {
-      console.log("todo salio bien");
+      alert("Todo salio bien");
     })
     .catch(err => console.log(err));
 };
