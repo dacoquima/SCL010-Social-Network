@@ -2,10 +2,14 @@
 import {
   createPost
 } from "../js/post.js";
+import {
+  observer
+} from "./../js/auth.js";
 
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 const containerFeedPost = document.getElementById("root2");
 export const templatePost = () => {
+  observer();
   containerFeedPost.innerHTML = "";
   let actualUser = firebase.auth().currentUser;
   console.log(actualUser);

@@ -26,31 +26,33 @@ export const createPost = () => {
   //usamos esta funcion para obtener uid de usuario corriente
   firebase.auth().onAuthStateChanged(user => {
     console.log(user);
-    //obtenemos desde collecion users datos de usuario corriente con uid
-    //db.collection('users').doc(user.uid).get().then(doc => {
-    //agrega un ID automatico
     //console.log(doc._document.proto.fields);
-    db.collection('posts').add({
-        //db.collection("users").doc(user.uid).set({
-        uid: user.uid,
-        //email: user.email,
-        //authorName: doc.data().user,
-        authorName: user.displayName,
-        photo: user.photoURL,
-        date: date,
-        category: postCategory,
-        message: postMesage,
-        like: []
 
-      })
-      .then(function (doc) {
-        console.log("Document written with ID: ", doc.id);
-        window.location.hash = '#/feed';
-        readPost();
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      })
+    if (validatePost(postMesage)) {
+      db.collection('posts').add({
+          //db.collection("users").doc(user.uid).set({
+          uid: user.uid,
+          //email: user.email,
+          //authorName: doc.data().user,
+          authorName: user.displayName,
+          photo: user.photoURL,
+          date: date,
+          category: postCategory,
+          message: postMesage,
+          like: []
+
+        })
+        .then(function (doc) {
+          console.log("Document written with ID: ", doc.id);
+          window.location.hash = '#/feed';
+          readPost();
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        })
+    } else {
+      alert("Ingrese una información valida para publicar");
+    }
   })
   //})
 };
@@ -214,4 +216,13 @@ export const unlikePost = (id, like) => {
 
     })
   });
+}
+
+//Valida si el textArea del post esta vacio 
+export const validatePost = (postMesage) => {
+  if (postMesage === "" || postMesage.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
 }
