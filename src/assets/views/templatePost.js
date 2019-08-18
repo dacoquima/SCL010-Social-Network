@@ -31,12 +31,12 @@ export const templatePost = () => {
        <img src="./assets/img/categoryIcon.svg" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
        <option value="Categoria">Categorias</option> 
-       <option value="Alojamiento">Alojamiento</option>
-       <option value="Arriendo">Arriendo</option>
-       <option value="Cultura">Cultura</option>
-       <option value="Gastronomia">Gastronomia</option>
-       <option value="Trabajo">Trabajo</option>
-       <option value="Tramites de visa">Tramites de visa</option>
+       <option value="Alojamiento" class="Alojamiento">Alojamiento</option>
+       <option value="Arriendo" class="Arriendo">Arriendo</option>
+       <option value="Cultura" class="Cultura">Cultura</option>
+       <option value="Gastronomia" class="Gastronomia">Gastronomia</option>
+       <option value="Trabajo" class="Trabajo">Trabajo</option>
+       <option value="Tramites" class="Tramites">Tramites de visa</option>
        </select>
         </span>
           <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="3" placeholder="¿Tienes algún dato?"></textarea>
