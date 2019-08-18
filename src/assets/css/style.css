@@ -483,3 +483,11 @@ a {
   padding-bottom: 15px;
   justify-content: space-between;
 }
+.mainPost {
+  padding: 0 35px;
+  display: flex;
+  flex-direction: column;
+}
+.tittlePost {
+  padding-top: 80px;
+}

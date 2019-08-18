@@ -16,8 +16,8 @@ export const templatePost = () => {
       <a id="feedIcon" class="iconInputBack" onclick="window.history.back()"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
       <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
     </header>
-    <main id = "templatePost" class="mainLoginCreate">
-      <div>
+    <main id = "templatePost" class="mainPost">
+      <div class="tittlePost">
         <h1 class="secondarytextPost">Nueva publicación</h1>
       </div>
       <div class = "perfil">
