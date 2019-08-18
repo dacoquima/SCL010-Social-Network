@@ -69,10 +69,11 @@ export const readPost = () => {
         `<main id = "templateWall" class="mainLoginCreate">
         <div class = "mainWallPost">
           <div class = "perfil">
-            <img src=${doc.data().photo} class="imgAvatarPost" alt="avatar user"/>
+          <div class = "avatarPost">
+            <img src=${doc.data().photo} alt="avatar user"/>
+            </div>
             <div>
             <h2 class="authorName">${doc.data().authorName}</h2>
-            
               </div>
             </div>
             <div class="categoryPost">
@@ -88,7 +89,7 @@ export const readPost = () => {
               <textarea id = "editTextPost${doc.id}" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
             </div>
               <div class="buttonsPost">     
-              <button class="actionButtonRegularPost littleButton" id='likePost${doc.id}'><img src="./assets/img/like.svg" alt="like post"><p class="postEventsDescrip">${doc.data().like.length} Me gusta</p></button>
+              <button class="actionButtonRegularPost littleButton" id='likePost${doc.id}'><img src="./assets/img/unlike.svg" alt="like post"><p class="postEventsDescrip">${doc.data().like.length} Me gusta</p></button>
               <button class="actionButtonRegularPost littleButton" id='ComentPost'><img src="./assets/img/coment.svg" alt="coment post"><p class="postEventsDescrip">Comentarios</p></button>
             </div>
             </div>
@@ -124,11 +125,13 @@ export const likeEvent = (doc) => {
     const btnLikePost = document.getElementById('likePost' + doc.id);
     btnLikePost.addEventListener("click", () => {
       unlikePost(doc.id, doc.data().like);
+      document.getElementById('likePost' + doc.id).style.color = "#ff637d";
     })
   } else {
     const btnLikePost = document.getElementById('likePost' + doc.id);
     btnLikePost.addEventListener("click", () => {
       likePost(doc.id, doc.data().like);
+      document.getElementById('likePost' + doc.id).style.color = "#ffffff";
     })
   }
 
@@ -195,7 +198,7 @@ export const likePost = (id, like) => {
     return docRef.update({
       like: like
     }).then((e) => {
-      console.log(e)
+
     })
   });
 }
@@ -208,7 +211,7 @@ export const unlikePost = (id, like) => {
     return docRef.update({
       like: like
     }).then((e) => {
-      console.log(e)
+
     })
   });
 }

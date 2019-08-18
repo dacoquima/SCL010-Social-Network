@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+<svg xmlns="http://www.w3.org/2000/svg" id="baseline-list-24px" width="30" height="33" viewBox="0 0 30 33">
     <defs>
         <style>
-            .cls-1{fill:#2e71a7}
+            .cls-1{fill:#9ba5a7}.cls-2{fill:none}
         </style>
     </defs>
-    <path id="Caminho_261" d="M2.4 2v3.75h15V2zm2.794 2.869H3.319V2.994h1.875zM2.4 11.375h15v-3.75h-15zm.938-2.813h1.875v1.875H3.338zM2.4 17h15v-3.75h-15zm.938-2.794h1.875v1.875H3.338z" class="cls-1" data-name="Caminho 261" transform="translate(-2.4 -2)"/>
+    <path id="Caminho_660" d="M3 20.857h3v-4.619H3zm0 9.238h3v-4.619H3zm0-18.476h3V7H3zm6 9.238h21v-4.619H9zm0 9.238h21v-4.619H9zM9 7v4.619h21V7z" class="cls-1" data-name="Caminho 660" transform="translate(0 -2)"/>
+    <path id="Caminho_661" d="M0 0h30v33H0z" class="cls-2" data-name="Caminho 661"/>
 </svg>

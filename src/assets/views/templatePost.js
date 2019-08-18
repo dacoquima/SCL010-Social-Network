@@ -15,7 +15,7 @@ export const templatePost = () => {
 
   const contentPost = `
     <header class="secondHeader">
-      <a id="feedIcon" class="iconInputBack" href="#/feed"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
+      <a id="feedIcon" class="iconInputBack" onclick="window.history.back()"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
       <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
     </header>
     <main id = "templatePost" class="mainLoginCreate">
@@ -23,12 +23,14 @@ export const templatePost = () => {
         <h1 class="secondarytextPost">Nueva publicación</h1>
       </div>
       <div class = "perfil">
-        <img src="${actualUser.photoURL}" class="imgAvatar" alt="avatar user"/>
-        <h2>${actualUser.displayName}</h2>
+      <div class = "avatarPostTemp">
+        <img src="${actualUser.photoURL}" class="avatarPostTemp img" alt="avatar user"/>
+        </div>
+        <h2 class="avatarName">${actualUser.displayName}</h2>
         </div>
         <form class="formPost"> 
         <span class="iconInput1"> 
-       <img src="./assets/img/categoryIcon.svg" alt="icono categoria">
+       <img src="./assets/img/categoryIconslct.svg" alt="icono categoria">
        <select name="slctCategory" id= "slctCategory" class="slct-box">
        <option disabled selected value>Categorias</option> 
        <option value="Alojamiento">Alojamiento</option>
