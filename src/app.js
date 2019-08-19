@@ -1,7 +1,8 @@
-import { initRouter } from './route.js';
+import { initRouter } from "./route.js";
+import { observer } from "./assets/js/auth.js";
 
 const init = () => {
-    initRouter();
-}
+  firebase.auth().onAuthStateChanged(e => initRouter());
+};
 
-window.addEventListener('load', init);
+window.addEventListener("load", init);

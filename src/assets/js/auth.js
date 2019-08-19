@@ -1,6 +1,5 @@
 import { connect } from "./database.js";
 import { createAccountInDb } from "./../js/database.js";
-import { templateSuccessCreate } from "../views/templateSuccessCreate.js";
 
 export const loginGoogle = () => {
   let db = firebase.firestore();
@@ -140,7 +139,6 @@ export const loginWithEmail = (email, password) => {
     .auth()
     .signInWithEmailAndPassword(email, password)
     .then(res => {
-      console.log(res);
       if (res.user.emailVerified) {
         location.href = "#/feed";
       } else {
@@ -168,10 +166,10 @@ export const observer = () => {
       var providerData = user.providerData;
       // ...
     } else {
+      location.href = "#/login";
       // User is signed out.
       // console.log("no hay usuario activo");
     }
-    return;
   });
 };
 

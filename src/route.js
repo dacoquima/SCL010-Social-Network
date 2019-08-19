@@ -71,6 +71,7 @@ const showTemplate = hash => {
       break;
     case "successCreate":
       containerRoot.appendChild(templateSuccessCreate());
+      break;
     case "post":
       containerRoot.appendChild(templatePost());
       containerRoot.appendChild(templateMenu());

@@ -18,19 +18,18 @@ export const templateProfile = () => {
   getContacts(actualUser.uid).then(actualContacts => {
     userInfo.then(userData => {
       const contentProfile = `
-        <header class="secondHeader">
-          <img src="./assets/img/back.svg" class="iconInputBack" alt="boton para volver"/>
-          <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
-        </header>
+      <header class="secondHeader">
+        <a id="feedIcon" class="iconInputBack" onclick="window.history.back()">
+          <img src="./assets/img/back.svg"  alt="boton para volver"/>
+        </a>
+        <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
+      </header>
         <main id = "templateProfile" class="mainLoginCreate">
           <div class="profileTop" >
             <img src="${
               userData.photo
             }" class="profilePicture" alt="foto de perfil usuario"/>
             <h2 id="profileName">${userData.displayName}</h2>
-            <p id="profileProfession">${userData.Profession}</p>
-            <p id="profileNacionality">${userData.Nacionality}</p>
-            <p id="profileBio">${userData.bio}</p>
           </div>
           <div class="profileButtons">
             <button id="editProfile" class="actionButtonRegular littleButton" style="display:none">Editar perfil</button>
