@@ -332,9 +332,14 @@ a {
 }
 .separationLine {
   background-color: var(--principalBlue);
-  height: 1px;
+  height: 1.5px;
+  border-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
-
+.divSeparationLine {
+  margin-bottom: 20px;
+}
 .actionButtonRegularPost {
   background: transparent;
   color: white;

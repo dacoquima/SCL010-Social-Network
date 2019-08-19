@@ -37,8 +37,9 @@ export const templateProfile = () => {
             <button id="addToContacts" class="actionButtonRegular" style="display:none">Agregar a contactos</button>
             <button id="removeFromContacts" class="actionButtonRegular" style="display:none">Eliminar de contactos</button>
           </div>
-          <hr class="separationLine">
-    
+          <div class="divSeparationLine">
+            <hr class="separationLine">
+          </div>
     
         </main>
         `;
