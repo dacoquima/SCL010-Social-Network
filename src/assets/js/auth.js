@@ -1,5 +1,9 @@
-import { connect } from "./database.js";
-import { createAccountInDb } from "./../js/database.js";
+import {
+  connect
+} from "./database.js";
+import {
+  createAccountInDb
+} from "./../js/database.js";
 
 export const loginGoogle = () => {
   let db = firebase.firestore();
@@ -17,7 +21,9 @@ export const loginGoogle = () => {
       db.collection("users")
         .doc(user.uid)
         .get()
-        .then(function(doc) {
+
+        .then(function (doc) {
+
           // si documento existe entramos en el muro
           if (doc.exists) {
             alert("Has iniciado sesión con exito");
@@ -65,7 +71,7 @@ export const loginFacebook = () => {
       db.collection("users")
         .doc(user.uid)
         .get()
-        .then(function(doc) {
+        .then(function (doc) {
           // si documento existe entramos en el muro
           if (doc.exists) {
             alert("Has iniciado sesión con exito");
@@ -120,7 +126,10 @@ const createAccountEmail = (userdata, secret) => {
 };
 
 export const createAccount = () => {
-  let { secret, userdata } = getData();
+  let {
+    secret,
+    userdata
+  } = getData();
   if (
     secret.password1 &&
     secret.password2 &&
@@ -155,7 +164,7 @@ export const loginWithEmail = (email, password) => {
 };
 
 export const observer = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       var displayName = user.displayName;
       var email = user.email;
@@ -192,10 +201,10 @@ const verifyEmail = () => {
 
   user
     .sendEmailVerification()
-    .then(function() {
+    .then(function () {
       // Email sent.
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened.
     });
 };
@@ -206,11 +215,11 @@ export const rememberPassword = () => {
 
   auth
     .sendPasswordResetEmail(emailAddress)
-    .then(function() {
+    .then(function () {
       alert("Correo de reestablecimiento de contraseña enviado");
       location.href = "#/login";
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened.
     });
 };
@@ -219,11 +228,11 @@ export const signOutAccount = () => {
   firebase
     .auth()
     .signOut()
-    .then(function() {
+    .then(function () {
       // Sign-out successful.
       location.href = "#/login";
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // An error happened.
     });
 };
