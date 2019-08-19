@@ -17,6 +17,7 @@ export const createPost = () => {
         .add({
           uid: user.uid,
           authorName: user.displayName,
+          username: user.email.split("@")[0],
           photo: user.photoURL,
           date: date,
           category: postCategory,
@@ -38,96 +39,107 @@ export const createPost = () => {
 
 export const readPost = () => {
   let db = firebase.firestore();
-  db.collection("posts").onSnapshot(querySnapshot => {
-    containerFeedPost.innerHTML = "";
 
-    querySnapshot.forEach(doc => {
-      containerFeedPost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
-        <div class = "mainWallPost">
-          <div class = "perfil">
-          <div class = "avatarPost">
-            <img src=${doc.data().photo} alt="avatar user"/>
-          </div>
-          <div>
-            <h2 class="authorName"><a href="#/profile/${doc.data().username}">${
-        doc.data().authorName
-      }</a></h2>
-          </div>
-        </div>
-        <div class="categoryPost">
-          <h2 id= "categoryPost${doc.id}">${doc.data().category}</h2>
-          <div class="buttonsEditPost">
-            <button class="actionButtonRegularPost littleButton" id='editPost${
-              doc.id
-            }'><img src="./assets/img/edit.svg" alt="editar post"><p class="postEventsEdit">Editar</p></button>
-              <button class="actionButtonRegularPost littleButton" id='deletePost${
+  if (firebase.auth().currentUser) {
+    db.collection("posts").onSnapshot(querySnapshot => {
+      containerFeedPost.innerHTML = "";
+      let actualUrl = window.location.hash;
+      if (actualUrl === "#/feed") {
+        querySnapshot.forEach(doc => {
+          containerFeedPost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
+            <div class = "mainWallPost">
+              <div class = "perfil">
+              <div class = "avatarPost">
+                <img src=${
+                  doc.data().photo ? doc.data().photo : "/assets/img/person.svg"
+                } alt="avatar user"/>
+              </div>
+              <div>
+                <h2 class="authorName"><a href="#/profile/${
+                  doc.data().username
+                }">${doc.data().authorName}</a></h2>
+              </div>
+            </div>
+            <div class="categoryPost">
+              <h2 id= "categoryPost${doc.id}">${doc.data().category}</h2>
+              <div class="buttonsEditPost">
+                <button class="actionButtonRegularPost littleButton" id='editPost${
+                  doc.id
+                }'><img src="./assets/img/edit.svg" alt="editar post"><p class="postEventsEdit">Editar</p></button>
+                  <button class="actionButtonRegularPost littleButton" id='deletePost${
+                    doc.id
+                  }'><img src="./assets/img/close.svg" alt="eliminar post"><p class="postEventsEdit">Eliminar</p></button>
+                  <button class="actionButtonRegularPost littleButton" id='savePost${
+                    doc.id
+                  }' style="display:none"><img src="./assets/img/save.svg" alt="guardar post"><p class="postEventsEdit">Guardar</p></button>
+              </div>
+            </div>
+            <div class="buttonsPost">
+              <p id = "messagePost${
                 doc.id
-              }'><img src="./assets/img/close.svg" alt="eliminar post"><p class="postEventsEdit">Eliminar</p></button>
-              <button class="actionButtonRegularPost littleButton" id='savePost${
+              }" name="postTxtWallFinal" class="txtStylePost">${
+            doc.data().message
+          }</p>
+                  <textarea id = "editTextPost${
+                    doc.id
+                  }" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
+            </div>
+            <div class="buttonsPost">     
+              <button class="actionButtonRegularPost littleButton" id='likePost${
                 doc.id
-              }' style="display:none"><img src="./assets/img/save.svg" alt="guardar post"><p class="postEventsEdit">Guardar</p></button>
+              }'><img src="./assets/img/unlike.svg" alt="like post"><p class="postEventsDescrip">${
+            doc.data().like.length
+          } Me gusta</p></button>
+              <button class="actionButtonRegularPost littleButton" id='ComentPost'><img src="./assets/img/coment.svg" alt="coment post"><p class="postEventsDescrip">Comentarios</p></button>
+            </div>
           </div>
-        </div>
-        <div class="buttonsPost">
-          <p id = "messagePost${
-            doc.id
-          }" name="postTxtWallFinal" class="txtStylePost">${
-        doc.data().message
-      }</p>
-              <textarea id = "editTextPost${
-                doc.id
-              }" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
-        </div>
-        <div class="buttonsPost">     
-          <button class="actionButtonRegularPost littleButton" id='likePost${
-            doc.id
-          }'><img src="./assets/img/unlike.svg" alt="like post"><p class="postEventsDescrip">${
-        doc.data().like.length
-      } Me gusta</p></button>
-          <button class="actionButtonRegularPost littleButton" id='ComentPost'><img src="./assets/img/coment.svg" alt="coment post"><p class="postEventsDescrip">Comentarios</p></button>
-        </div>
-      </div>
-    </main>`;
+        </main>`;
+        });
+        querySnapshot.forEach(doc => {
+          events(doc);
+          likeEvent(doc);
+        });
+      }
     });
-    querySnapshot.forEach(doc => {
-      events(doc);
-      likeEvent(doc);
-    });
-  });
+  }
   return containerFeedPost;
 };
 
 //funcion para los eventos dentro de los posts
 export const events = doc => {
-  if (firebase.auth().currentUser.uid === doc.data().uid) {
-    const btnDeletePost = document.getElementById("deletePost" + doc.id);
-    btnDeletePost.addEventListener("click", () => {
-      deletePost(doc.id);
-    });
-    const btnEditPost = document.getElementById("editPost" + doc.id);
-    btnEditPost.addEventListener("click", () => {
-      editPost(doc.id);
-    });
-  } else {
-    document.getElementById(`editPost${doc.id}`).style.display = "none";
-    document.getElementById(`deletePost${doc.id}`).style.display = "none";
+  if (firebase.auth().currentUser) {
+    if (firebase.auth().currentUser.uid === doc.data().uid) {
+      const btnDeletePost = document.getElementById("deletePost" + doc.id);
+      btnDeletePost.addEventListener("click", () => {
+        deletePost(doc.id);
+      });
+      const btnEditPost = document.getElementById("editPost" + doc.id);
+      btnEditPost.addEventListener("click", () => {
+        editPost(doc.id);
+      });
+    } else {
+      document.getElementById(`editPost${doc.id}`).style.display = "none";
+      document.getElementById(`deletePost${doc.id}`).style.display = "none";
+    }
   }
 };
 export const likeEvent = doc => {
-  if (doc.data().like.includes(firebase.auth().currentUser.uid)) {
-    // dislike
-    const btnLikePost = document.getElementById("likePost" + doc.id);
-    btnLikePost.addEventListener("click", () => {
-      unlikePost(doc.id, doc.data().like);
-      document.getElementById("likePost" + doc.id).style.color = "#ff637d";
-    });
-  } else {
-    //like
-    const btnLikePost = document.getElementById("likePost" + doc.id);
-    btnLikePost.addEventListener("click", () => {
-      likePost(doc.id, doc.data().like);
-      document.getElementById("likePost" + doc.id).style.color = "#ffffff";
-    });
+  if (firebase.auth().currentUser) {
+    if (doc.data().like.includes(firebase.auth().currentUser.uid)) {
+      // dislike
+      const btnLikePost = document.getElementById("likePost" + doc.id);
+      btnLikePost.addEventListener("click", () => {
+        unlikePost(doc.id, doc.data().like);
+        document.getElementById("likePost" + doc.id).style.color = "#ff637d";
+      });
+    } else {
+      //like
+      const btnLikePost = document.getElementById("likePost" + doc.id);
+      btnLikePost.addEventListener("click", () => {
+        likePost(doc.id, doc.data().like);
+        document.getElementById("likePost" + doc.id).style.color = "#ffffff";
+      });
+    }
   }
 };
 
