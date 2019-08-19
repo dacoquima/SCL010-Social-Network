@@ -1,6 +1,6 @@
 import {
   observer
-} from './auth.js'
+} from "./auth.js";
 
 const containerFeedPost = document.getElementById("root2");
 let date = new Date();

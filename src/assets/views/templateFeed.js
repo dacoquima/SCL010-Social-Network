@@ -1,9 +1,5 @@
-import {
-  observer
-} from "./../js/auth.js";
-import {
-  readPost
-} from "../js/post.js";
+import { observer } from "./../js/auth.js";
+import { readPost } from "../js/post.js";
 
 export const templateFeed = () => {
   observer();

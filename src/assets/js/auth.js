@@ -21,7 +21,9 @@ export const loginGoogle = () => {
       db.collection("users")
         .doc(user.uid)
         .get()
+
         .then(function (doc) {
+
           // si documento existe entramos en el muro
           if (doc.exists) {
             alert("Has iniciado sesión con exito");
@@ -124,6 +126,10 @@ const createAccountEmail = (userdata, secret) => {
 };
 
 export const createAccount = () => {
+  let {
+    secret,
+    userdata
+  } = getData();
   let {
     secret,
     userdata
