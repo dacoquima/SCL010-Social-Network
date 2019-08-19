@@ -6,6 +6,12 @@
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   },
+  "functions": {
+    "predeploy": [
+      "npm --prefix /Users/osx/Desktop/SCL010-Social-Network run eslint"
+    ],
+    "source": "functions"
+  },
   "hosting": {
     "public": "src",
     "ignore": [
