@@ -130,10 +130,6 @@ export const createAccount = () => {
     secret,
     userdata
   } = getData();
-  let {
-    secret,
-    userdata
-  } = getData();
   if (
     secret.password1 &&
     secret.password2 &&
