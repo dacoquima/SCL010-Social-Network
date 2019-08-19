@@ -1,6 +1,6 @@
 export const templateMenu = () => {
   const containerMenu = document.createElement("div");
-  containerMenu.classname = "containerCreate";
+  containerMenu.classname = "containerMenu";
   let user = firebase.auth().currentUser;
   const contentMenu = `
     <footer class ="menuFooter">
