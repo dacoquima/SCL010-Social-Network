@@ -39,11 +39,9 @@ const changeRouter = hash => {
     let template = "#/profile";
     return showTemplate(template);
   }
-  if (hash === "#/categories") {
-    return showTemplate(hash);
-  }
-  if (hash === "#/category") {
-    return showTemplate(hash);
+  if (hash.includes("#/categories")) {
+    let template = "#/categories";
+    return showTemplate(template);
   }
 };
 
