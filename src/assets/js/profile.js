@@ -12,7 +12,6 @@ export const profile = username => {
     .then(result => {
       let doc = result.docs[0];
       if (doc.exists) {
-        console.log("document data:", doc.data());
         postProfile(doc.data().uid);
         return doc.data();
       } else {
@@ -29,7 +28,6 @@ export const postProfile = uid => {
   return docRef.where("uid", "==", uid).onSnapshot(querySnapshot => {
     containerProfilePost.innerHTML = "";
     querySnapshot.forEach(doc => {
-      console.log(doc.data());
       containerProfilePost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
       <div class = "mainWallPost">
         <div class = "perfil">
@@ -117,5 +115,12 @@ export const removeFromContacts = id => {
           console.log(e);
         });
     });
+  });
+};
+
+export const getContacts = user => {
+  let userRef = db.collection("users").where("uid", "==", user);
+  return userRef.get().then(user => {
+    return user.docs[0].data().contacts;
   });
 };

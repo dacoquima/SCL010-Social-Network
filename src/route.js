@@ -98,7 +98,6 @@ const showTemplate = hash => {
 
 export const initRouter = () => {
   window.addEventListener("load", changeRouter(window.location.hash));
-
   if ("onhashchange" in window) {
     window.onhashchange = () => {
       changeRouter(window.location.hash);
