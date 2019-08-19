@@ -32,7 +32,9 @@ export const postProfile = uid => {
       <div class = "mainWallPost">
         <div class = "perfil">
           <div class = "avatarPost">
-            <img src=${doc.data().photo} alt="avatar user"/>
+            <img src=${
+              doc.data().photo ? doc.data().photo : "/assets/img/person.svg"
+            } alt="avatar user"/>
           </div>
           <div>
             <h2 class="authorName"><a href="#/profile/${doc.data().username}">${

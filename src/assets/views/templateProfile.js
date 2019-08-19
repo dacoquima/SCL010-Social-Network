@@ -27,7 +27,7 @@ export const templateProfile = () => {
         <main id = "templateProfile" class="mainLoginCreate">
           <div class="profileTop" >
             <img src="${
-              userData.photo
+              userData.photo ? userData.photo : "/assets/img/person.svg"
             }" class="profilePicture" alt="foto de perfil usuario"/>
             <h2 id="profileName">${userData.displayName}</h2>
           </div>
@@ -36,16 +36,6 @@ export const templateProfile = () => {
             <button id="logOut" class="actionButtonRegular littleButton" style="display:none">Cerrar sesión</button>
             <button id="addToContacts" class="actionButtonRegular" style="display:none">Agregar a contactos</button>
             <button id="removeFromContacts" class="actionButtonRegular" style="display:none">Eliminar de contactos</button>
-          </div>
-          <div class="profileDetails">
-            <div class="profilePostDetails">
-              <p id="postCounter"></p>
-              <p>Publicaciones</p>
-            </div>
-            <div class="profileContactDetails">
-              <p id="contactCounter"></p>
-              <p>Contactos</p>
-            </div>
           </div>
           <hr class="separationLine">
     

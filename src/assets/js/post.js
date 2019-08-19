@@ -1,5 +1,4 @@
 import { observer } from "./auth.js";
-import { getContacts } from "./profile.js";
 
 const containerFeedPost = document.getElementById("root2");
 let date = new Date();
@@ -47,14 +46,13 @@ export const readPost = () => {
       let actualUrl = window.location.hash;
       if (actualUrl === "#/feed") {
         querySnapshot.forEach(doc => {
-          let actualUser = firebase.auth().currentUser;
-          getContacts(actualUser.uid).then(contactsArray => {
-            if (contactsArray.includes(doc.data().uid)) {
-              containerFeedPost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
+          containerFeedPost.innerHTML += `<main id = "templateWall" class="mainLoginCreate">
             <div class = "mainWallPost">
               <div class = "perfil">
               <div class = "avatarPost">
-                <img src=${doc.data().photo} alt="avatar user"/>
+                <img src=${
+                  doc.data().photo ? doc.data().photo : "/assets/img/person.svg"
+                } alt="avatar user"/>
               </div>
               <div>
                 <h2 class="authorName"><a href="#/profile/${
@@ -80,8 +78,8 @@ export const readPost = () => {
               <p id = "messagePost${
                 doc.id
               }" name="postTxtWallFinal" class="txtStylePost">${
-                doc.data().message
-              }</p>
+            doc.data().message
+          }</p>
                   <textarea id = "editTextPost${
                     doc.id
                   }" name="postTxtWallFinal" class="txtAreaStylePost" cols="40" rows="2" style="display:none"></textarea>
@@ -90,16 +88,13 @@ export const readPost = () => {
               <button class="actionButtonRegularPost littleButton" id='likePost${
                 doc.id
               }'><img src="./assets/img/unlike.svg" alt="like post"><p class="postEventsDescrip">${
-                doc.data().like.length
-              } Me gusta</p></button>
+            doc.data().like.length
+          } Me gusta</p></button>
               <button class="actionButtonRegularPost littleButton" id='ComentPost'><img src="./assets/img/coment.svg" alt="coment post"><p class="postEventsDescrip">Comentarios</p></button>
             </div>
           </div>
         </main>`;
-            }
-          });
         });
-
         querySnapshot.forEach(doc => {
           events(doc);
           likeEvent(doc);
