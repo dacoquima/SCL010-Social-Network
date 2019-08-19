@@ -1,10 +1,6 @@
 //importar funcion que crea post
-import {
-  createPost
-} from "../js/post.js";
-import {
-  observer
-} from "./../js/auth.js";
+import { createPost } from "../js/post.js";
+import { observer } from "./../js/auth.js";
 
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 const containerFeedPost = document.getElementById("root2");
@@ -20,13 +16,15 @@ export const templatePost = () => {
       <a id="feedIcon" class="iconInputBack" onclick="window.history.back()"><img src="./assets/img/back.svg"  alt="boton para volver"/></a>
       <img src="./assets/img/second-header.png" class="imgSecondHeader" alt="logo migra.me"/>
     </header>
-    <main id = "templatePost" class="mainLoginCreate">
-      <div>
+    <main id = "templatePost" class="mainPost">
+      <div class="tittlePost">
         <h1 class="secondarytextPost">Nueva publicación</h1>
       </div>
       <div class = "perfil">
       <div class = "avatarPostTemp">
-        <img src="${actualUser.photoURL}" class="avatarPostTemp img" alt="avatar user"/>
+        <img src="${
+          actualUser.photoURL
+        }" class="avatarPostTemp img" alt="avatar user"/>
         </div>
         <h2 class="avatarName">${actualUser.displayName}</h2>
         </div>
