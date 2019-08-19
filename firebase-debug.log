@@ -425,3 +425,42 @@
 [debug] [2019-08-18T19:56:01.712Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
 [warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
 [info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
+[debug] [2019-08-19T12:29:26.662Z] ----------------------------------------------------------------------
+[debug] [2019-08-19T12:29:26.667Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\carol\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-08-19T12:29:26.667Z] CLI Version:   7.2.2
+[debug] [2019-08-19T12:29:26.668Z] Platform:      win32
+[debug] [2019-08-19T12:29:26.668Z] Node Version:  v10.16.0
+[debug] [2019-08-19T12:29:26.681Z] Time:          Mon Aug 19 2019 08:29:26 GMT-0400 (GMT-04:00)
+[debug] [2019-08-19T12:29:26.682Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-19T12:29:26.713Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-19T12:29:26.715Z] > authorizing via signed-in user
+[debug] [2019-08-19T12:29:26.716Z] [iam] checking project social-network-72a7d for permissions ["firebase.projects.get"]
+[debug] [2019-08-19T12:29:26.720Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-19T12:29:26.720Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-19T12:29:27.117Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-19T12:29:27.137Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/social-network-72a7d:testIamPermissions  
+
+[debug] [2019-08-19T12:29:28.637Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-19T12:29:28.642Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/social-network-72a7d  
+ 
+[debug] [2019-08-19T12:29:30.122Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\carol\OneDrive\Área de Trabalho\GitDescarga\SCL010-Social-Network'...
+[info] 
+[debug] [2019-08-19T12:29:30.148Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/social-network-72a7d/webApps/-/config  
+ 
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-08-19T12:29:30.200Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/social-network-72a7d/adminSdkConfig  
+ 
+[debug] [2019-08-19T12:29:31.370Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-19T12:29:31.536Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: src
+[info] +  hosting: Local server: http://localhost:5000
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\Users\carol\OneDrive\Área de Trabalho\GitDescarga\SCL010-Social-Network\functions" for Cloud Functions...
+[debug] [2019-08-19T12:29:33.620Z] [runtime-status] Functions runtime initialized. {"cwd":"C:\\Users\\carol\\OneDrive\\Área de Trabalho\\GitDescarga\\SCL010-Social-Network\\functions","node_version":"10.16.0"}
+[debug] [2019-08-19T12:29:33.620Z] [runtime-status] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true} {}
+[warn] !  The Cloud Functions emulator requires the module "firebase-admin" to be installed. This package is in your package.json, but it's not available. You probably need to run "npm install" in your functions directory.
+[info] i  functions: Your functions could not be parsed due to an issue with your node_modules (see above)
