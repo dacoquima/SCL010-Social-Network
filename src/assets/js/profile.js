@@ -1,4 +1,7 @@
-import { events, likeEvent } from "./post.js";
+import {
+  events,
+  likeEvent
+} from "./post.js";
 let db = firebase.firestore();
 const containerProfilePost = document.getElementById("root2");
 
@@ -33,7 +36,7 @@ export const postProfile = uid => {
         <div class = "perfil">
           <div class = "avatarPost">
             <img src=${
-              doc.data().photo ? doc.data().photo : "/assets/img/person.svg"
+              doc.data().photo ? doc.data().photo : "./assets/img/person.svg"
             } alt="avatar user"/>
           </div>
           <div>

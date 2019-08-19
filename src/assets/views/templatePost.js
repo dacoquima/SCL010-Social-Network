@@ -1,6 +1,10 @@
 //importar funcion que crea post
-import { createPost } from "../js/post.js";
-import { observer } from "./../js/auth.js";
+import {
+  createPost
+} from "../js/post.js";
+import {
+  observer
+} from "./../js/auth.js";
 
 // import { saveUserToDatabaseAfterLogin } from "./../js/auth.js";
 const containerFeedPost = document.getElementById("root2");
@@ -38,7 +42,7 @@ export const templatePost = () => {
        <option value="Cultura">Cultura</option>
        <option value="Gastronomia">Gastronomia</option>
        <option value="Trabajo">Trabajo</option>
-       <option value="Tramites de visa">Tramites de visa</option>
+       <option value="Tramites">Trámites/option>
        </select>
         </span>
           <textarea name="postTxt" class="txtAreaStyle" cols="40" rows="10" placeholder="¿Tienes algún dato?"></textarea>
